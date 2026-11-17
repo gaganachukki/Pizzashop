@@ -1,0 +1,211 @@
+/* ==========================================================================
+   STACKLY PIZZA SHOP - AUTHENTICATION PAGES (LOGIN & SIGNUP)
+   Red + Black Palette (#E50914 & #0D0D0D)
+   ========================================================================== */
+
+.auth-split-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  background: var(--bg-deep-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left Hero Visual Side */
+.auth-visual-side {
+  position: relative;
+  background: radial-gradient(circle at 60% 40%, rgba(229, 9, 20, 0.22) 0%, rgba(13, 13, 13, 0.98) 75%),
+              url('../assets/images/hero-pizza.webp') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  overflow: hidden;
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.95) 0%, rgba(13, 13, 13, 0.8) 60%, rgba(10, 10, 10, 0.98) 100%);
+  z-index: 1;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  max-width: 540px;
+}
+
+.auth-visual-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(229, 9, 20, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(229, 9, 20, 0.3);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.auth-visual-heading {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.auth-visual-desc {
+  font-size: 1rem;
+  color: var(--white-80);
+  line-height: 1.65;
+}
+
+/* Right Form Card Side */
+.auth-form-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  background: #111111;
+  border-left: 1px solid var(--border-glass);
+  overflow-y: auto;
+}
+
+.auth-top-nav {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 2.5rem);
+  left: clamp(2rem, 4vw, 3.5rem);
+  right: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.auth-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white-75);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.auth-back-link:hover {
+  color: var(--primary);
+  transform: translateX(-4px);
+}
+
+.auth-logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.auth-card-body {
+  max-width: 440px;
+  width: 100%;
+  margin: 4.5rem auto 2rem;
+}
+
+.auth-heading {
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtext {
+  font-size: 0.92rem;
+  color: var(--white-75);
+  margin-bottom: 2rem;
+}
+
+.password-input-wrap {
+  position: relative;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--white-60);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.toggle-password-icon:hover {
+  color: var(--primary);
+}
+
+.auth-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--white-75);
+}
+
+.auth-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.auth-forgot-link {
+  color: var(--primary);
+  transition: text-decoration var(--transition-fast);
+}
+
+.auth-forgot-link:hover {
+  text-decoration: underline;
+}
+
+.auth-btn-submit {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.auth-switch-prompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--white-75);
+}
+
+.auth-switch-link {
+  color: var(--primary);
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.auth-switch-link:hover {
+  text-decoration: underline;
+}
+
+.demo-credentials-box {
+  background: #161616;
+  border: 1px dashed var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-top: 1.75rem;
+  font-size: 0.82rem;
+  color: var(--white-75);
+  line-height: 1.5;
+}
+
+.demo-credentials-box code {
+  color: var(--primary);
+  font-weight: 600;
+}

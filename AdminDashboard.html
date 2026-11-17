@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchen Operations &amp; Executive Command Center | STACKLY Admin</title>
+  <meta name="description" content="Administrative control center for STACKLY pizza operations: live oven orders queue, menu catalog pricing, customer directory, and delivery telemetry.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins & Caveat Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Admin Stylesheet -->
+  <link rel="stylesheet" href="css/admindashboard.css">
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+</head>
+<body class="admin-dashboard-body">
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="admin-sidebar-backdrop" id="adminSidebarBackdrop"></div>
+
+  <!-- ==========================================================================
+       ADMIN SIDEBAR
+       ========================================================================== -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <!-- Header -->
+    <div class="admin-sidebar-header">
+      <a href="index.html" class="admin-brand" aria-label="STACKLY Storefront">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY" class="admin-brand-img">
+        <span class="admin-badge-role">ADMIN</span>
+      </a>
+      <button type="button" class="admin-close-btn" id="adminCloseBtn" aria-label="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Practice Role Pill -->
+    <div class="admin-practice-pill">
+      <div class="admin-hq-avatar sync-admin-avatar">CM</div>
+      <div class="admin-practice-meta">
+        <span class="practice-title sync-admin-name">Chef Marco Rossi</span>
+        <span class="sync-admin-email" style="font-size:0.72rem; color:var(--text-light); display:block; overflow:hidden; text-overflow:ellipsis; max-width:140px; margin-bottom:2px;">chef.marco@stackly.com</span>
+        <span class="practice-subtitle"><span class="pulse-green"></span> 450°C Kitchen Active</span>
+      </div>
+    </div>
+
+    <!-- Nav Items -->
+    <nav class="admin-nav" aria-label="Admin Navigation">
+      <div class="admin-nav-heading">Live Kitchen &amp; Orders</div>
+
+      <!-- Tab 1: Overview -->
+      <button type="button" class="admin-nav-item active" data-tab="admin-tab-overview">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>Live Kitchen Board</span>
+      </button>
+
+      <!-- Tab 2: Menu Catalog -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-menu">
+        <i class="fa-solid fa-pizza-slice"></i>
+        <span>Pizza Catalog</span>
+        <span class="admin-badge highlight">12 Live</span>
+      </button>
+
+      <!-- Tab 3: Master Orders Log -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-orders">
+        <i class="fa-solid fa-receipt"></i>
+        <span>All Orders Log</span>
+        <span class="admin-badge">128</span>
+      </button>
+
+      <div class="admin-nav-heading">Customers &amp; Logistics</div>
+
+      <!-- Tab 4: Customers -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-customers">
+        <i class="fa-solid fa-users"></i>
+        <span>Customer Directory</span>
+      </button>
+
+      <!-- Tab 5: Offers & Coupons -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-offers">
+        <i class="fa-solid fa-tags"></i>
+        <span>Promo Coupons</span>
+      </button>
+
+      <!-- Tab 6: Fleet Telemetry -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-delivery">
+        <i class="fa-solid fa-motorcycle"></i>
+        <span>Delivery Couriers</span>
+      </button>
+
+      <div class="admin-nav-heading">Controls</div>
+
+      <!-- Tab 7: Settings -->
+      <button type="button" class="admin-nav-item" data-tab="admin-tab-settings">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Kitchen Controls</span>
+      </button>
+    </nav>
+
+    <!-- Footer -->
+    <div class="admin-sidebar-footer">
+      <a href="index.html" class="admin-link-btn">
+        <i class="fa-solid fa-store"></i>
+        <span>Public Pizza Storefront</span>
+      </a>
+      <a href="Login.html" class="admin-link-btn" style="color:var(--admin-primary);">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Admin Sign Out</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MAIN CONTENT WRAPPER
+       ========================================================================== -->
+  <div class="admin-main-wrap">
+    <!-- Topbar -->
+    <header class="admin-topbar">
+      <div class="admin-topbar-left">
+        <button type="button" class="admin-mobile-hamburger" id="adminHamburgerBtn" aria-label="Open mobile menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="admin-mobile-logo" aria-label="STACKLY Home">
+          <img src="assets/images/Brand-logo.webp" alt="STACKLY" class="admin-mobile-logo-img">
+        </a>
+      </div>
+
+      <div class="admin-topbar-right">
+        <!-- Live Kitchen Status Pill -->
+        <span class="kitchen-status-pill">
+          <span class="pulse-green"></span> Wood-Fired Stone 450°C Ready
+        </span>
+
+        <!-- Add Pizza CTA -->
+        <button type="button" class="admin-btn-action" id="openAddPizzaBtn">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add Pizza</span>
+        </button>
+
+        <!-- Admin Profile -->
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="admin-hq-avatar sync-admin-avatar" style="width:38px; height:38px; font-size:0.9rem;">CM</div>
+          <div class="admin-profile-meta" style="display:flex; flex-direction:column;">
+            <span class="sync-admin-name" style="font-size:0.88rem; font-weight:700; color:var(--white);">Chef Marco</span>
+            <span class="sync-admin-email" style="font-size:0.72rem; color:var(--admin-primary); font-weight:600; text-transform:none;">chef.marco@stackly.com</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="admin-content">
+
+      <!-- ======================================================================
+           TAB 1: LIVE KITCHEN OVERVIEW
+           ====================================================================== -->
+            <!-- ======================================================================
+           TAB 1: LIVE KITCHEN OVERVIEW (ENRICHED & SCROLLABLE)
+           ====================================================================== -->
+      <section class="admin-tab-panel active" id="admin-tab-overview">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Executive Kitchen Command Center 🍕</h1>
+            <p class="dash-page-subtitle">Real-time oven telemetry, dispatch queues, and today's sales throughput.</p>
+          </div>
+          <span class="status-pill success" style="padding:8px 16px; font-size:0.85rem;"><i class="fa-solid fa-bell"></i> 14 Orders in Live Queue</span>
+        </div>
+
+        <!-- 4 KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Today's Revenue</span>
+              <div class="kpi-icon-wrap kpi-icon-red"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+            <div class="kpi-val">₹42,850</div>
+            <span class="kpi-sub" style="color:#10b981;"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% vs yesterday</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Orders Handled</span>
+              <div class="kpi-icon-wrap kpi-icon-amber"><i class="fa-solid fa-pizza-slice"></i></div>
+            </div>
+            <div class="kpi-val">128</div>
+            <span class="kpi-sub">114 Delivered &bull; 14 Active</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Avg Delivery Velocity</span>
+              <div class="kpi-icon-wrap kpi-icon-green"><i class="fa-solid fa-stopwatch"></i></div>
+            </div>
+            <div class="kpi-val">22.4 m</div>
+            <span class="kpi-sub" style="color:#10b981;"><i class="fa-solid fa-bolt"></i> 7.6m ahead of 30m SLA</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Customer Satisfaction</span>
+              <div class="kpi-icon-wrap kpi-icon-blue"><i class="fa-solid fa-star"></i></div>
+            </div>
+            <div class="kpi-val">4.95</div>
+            <span class="kpi-sub">Based on 94 reviews today</span>
+          </div>
+        </div>
+
+        <!-- Live Kitchen Queue (6 Live Tickets) -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title">Live Kitchen Dispatch Queue</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Click "Advance Status" to transition orders through kitchen stages.</p>
+            </div>
+            <span class="status-pill danger"><span class="pulse-dot"></span> Auto-Sync Active</span>
+          </div>
+
+          <div class="kitchen-orders-queue">
+            <!-- Ticket 1 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8492</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">2x Pepperoni Feast, 1x Stuffed Garlic Bread</span>
+                  <span class="ticket-time">Customer: Arun Kumar &bull; Destination: Bellandur Hub &bull; 12:42 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill warning"><i class="fa-solid fa-fire"></i> Baking (450°C)</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-motorcycle"></i> Dispatch Rider
+                </button>
+              </div>
+            </div>
+
+            <!-- Ticket 2 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8493</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">1x Truffle Mushroom, 1x Choco Brownie</span>
+                  <span class="ticket-time">Customer: Priya N. &bull; Destination: HSR Layout &bull; 12:35 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill info"><i class="fa-solid fa-motorcycle"></i> In Transit</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-check-double"></i> Mark Delivered
+                </button>
+              </div>
+            </div>
+
+            <!-- Ticket 3 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8494</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">1x Classic Margherita, 2x Fresh Orange Juices</span>
+                  <span class="ticket-time">Customer: Vikram S. &bull; Destination: Indiranagar &bull; 12:48 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill warning"><i class="fa-solid fa-fire"></i> Baking (450°C)</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-motorcycle"></i> Dispatch Rider
+                </button>
+              </div>
+            </div>
+
+            <!-- Ticket 4 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8495</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">2x BBQ Chicken Supreme, 1x Truffle Parmesan Fries</span>
+                  <span class="ticket-time">Customer: Sanjay R. &bull; Destination: Koramangala &bull; 12:50 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill info"><i class="fa-solid fa-pizza-slice"></i> Dough Prep</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-fire"></i> Send to Oven
+                </button>
+              </div>
+            </div>
+
+            <!-- Ticket 5 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8496</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">1x Four Cheese Truffle, 1x Stuffed Garlic Bread</span>
+                  <span class="ticket-time">Customer: Neha G. &bull; Destination: Bellandur Sector 2 &bull; 12:52 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill info"><i class="fa-solid fa-receipt"></i> Fresh Order</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-hand-holding-hand"></i> Prep Station
+                </button>
+              </div>
+            </div>
+
+            <!-- Ticket 6 -->
+            <div class="kitchen-order-ticket">
+              <div class="ticket-meta">
+                <span class="ticket-id">#STK-8497</span>
+                <div>
+                  <span style="font-weight:700; color:var(--white); display:block;">3x Veg Supreme Delight, 3x Craft Beverages</span>
+                  <span class="ticket-time">Customer: Corporate Team &bull; Destination: Prestige Tech Park &bull; 12:54 PM</span>
+                </div>
+              </div>
+              <div class="ticket-actions">
+                <span class="status-pill success"><i class="fa-solid fa-box-check"></i> Quality Boxed</span>
+                <button class="btn-ticket-step primary btn-advance-order">
+                  <i class="fa-solid fa-motorcycle"></i> Dispatch Rider
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wood-Fired Oven Chamber Telemetry (3 Decks) -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-fire-flame-curved" style="color:var(--admin-primary); margin-right:6px;"></i> Wood-Fired Stone Oven Telemetry</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Live temperatures from dual Napoli-style beechwood stone ovens.</p>
+            </div>
+            <span class="status-pill success"><i class="fa-solid fa-circle-check"></i> 450°C Ready</span>
+          </div>
+
+          <div class="telemetry-stat-grid">
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-fire-burner" style="color:var(--admin-primary);"></i> Stone Deck 1 (Beechwood)</span>
+              <div style="font-size:1.6rem; font-weight:800; color:var(--white);">452°C</div>
+              <span class="telemetry-stat-val">4 Pizzas Inside &bull; 90s remaining &bull; Optimal</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-fire-burner" style="color:#f59e0b;"></i> Stone Deck 2 (Oakwood)</span>
+              <div style="font-size:1.6rem; font-weight:800; color:var(--white);">448°C</div>
+              <span class="telemetry-stat-val">3 Pizzas Inside &bull; 110s remaining &bull; Optimal</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-snowflake" style="color:#38bdf8;"></i> Proofing Chamber</span>
+              <div style="font-size:1.6rem; font-weight:800; color:var(--white);">18.2°C</div>
+              <span class="telemetry-stat-val">72h Sourdough &bull; 120 Dough Balls Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hourly Kitchen Throughput & Critical Stock Alerts -->
+        <div class="dash-two-col">
+          <!-- Left: Hourly Throughput Table -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Hourly Kitchen Velocity</h3>
+              <span class="status-pill info">Today's Shift</span>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Time Slot</th>
+                    <th>Orders</th>
+                    <th>Avg Bake</th>
+                    <th>Courier SLA</th>
+                    <th>Kitchen Load</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>11:00 - 12:00</td>
+                    <td>28 orders</td>
+                    <td>2.1 min</td>
+                    <td><span class="status-pill success">100%</span></td>
+                    <td>82%</td>
+                  </tr>
+                  <tr>
+                    <td>12:00 - 13:00</td>
+                    <td>46 orders</td>
+                    <td>2.3 min</td>
+                    <td><span class="status-pill success">98%</span></td>
+                    <td><strong style="color:var(--admin-primary);">96% (Peak)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>13:00 - 14:00</td>
+                    <td>38 orders</td>
+                    <td>2.2 min</td>
+                    <td><span class="status-pill success">100%</span></td>
+                    <td>88%</td>
+                  </tr>
+                  <tr>
+                    <td>14:00 - 15:00</td>
+                    <td>16 orders</td>
+                    <td>2.0 min</td>
+                    <td><span class="status-pill success">100%</span></td>
+                    <td>62%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Right: Stock Alerts -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Critical Pantry Inventory</h3>
+              <span class="status-pill warning">4 Monitored</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <div>
+                  <strong style="color:var(--white); font-size:0.88rem; display:block;">San Marzano D.O.P Pelati</strong>
+                  <span style="font-size:0.75rem; color:var(--text-light);">48 Cans (Sufficient for 240 pies)</span>
+                </div>
+                <span class="status-pill success">Optimal</span>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <div>
+                  <strong style="color:var(--white); font-size:0.88rem; display:block;">Fior di Latte Mozzarella</strong>
+                  <span style="font-size:0.75rem; color:var(--text-light);">14.2 kg Fresh Curd</span>
+                </div>
+                <span class="status-pill success">Optimal</span>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <div>
+                  <strong style="color:var(--white); font-size:0.88rem; display:block;">Italian Smoked Pepperoni</strong>
+                  <span style="font-size:0.75rem; color:var(--text-light);">6.2 kg Remaining</span>
+                </div>
+                <span class="status-pill warning">Reorder Today</span>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <div>
+                  <strong style="color:var(--white); font-size:0.88rem; display:block;">Cold-Pressed Truffle Oil</strong>
+                  <span style="font-size:0.75rem; color:var(--text-light);">3.5 Liters in stock</span>
+                </div>
+                <span class="status-pill success">Optimal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 2: PIZZA CATALOG MANAGEMENT (10 ITEMS + ANALYTICS)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-menu">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Pizza Catalog Management</h1>
+            <p class="dash-page-subtitle">Configure prices, toggle stock availability in real-time, and add seasonal pizzas.</p>
+          </div>
+          <button class="admin-btn-action" onclick="document.getElementById('addPizzaModal').classList.add('active');">
+            <i class="fa-solid fa-plus"></i> Add New Pizza
+          </button>
+        </div>
+
+        <!-- Menu Margin & Sales KPI Row -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Top Selling Item</span>
+              <div class="kpi-icon-wrap kpi-icon-red"><i class="fa-solid fa-trophy"></i></div>
+            </div>
+            <div class="kpi-val" style="font-size:1.35rem; padding:4px 0;">Pepperoni Feast</div>
+            <span class="kpi-sub">38 Orders Handled Today</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Highest Margin Item</span>
+              <div class="kpi-icon-wrap kpi-icon-green"><i class="fa-solid fa-chart-line"></i></div>
+            </div>
+            <div class="kpi-val" style="font-size:1.35rem; padding:4px 0;">Truffle Mushroom</div>
+            <span class="kpi-sub" style="color:#10b981;">72.4% Gross Profit Margin</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Active Catalog Size</span>
+              <div class="kpi-icon-wrap kpi-icon-blue"><i class="fa-solid fa-list-check"></i></div>
+            </div>
+            <div class="kpi-val">10 Items</div>
+            <span class="kpi-sub">100% In Stock &bull; 0 Stockouts</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Average Crust Cost</span>
+              <div class="kpi-icon-wrap kpi-icon-amber"><i class="fa-solid fa-coins"></i></div>
+            </div>
+            <div class="kpi-val">₹68.50</div>
+            <span class="kpi-sub">Organic Sourdough Batch Cost</span>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="dash-filter-bar">
+          <button class="dash-filter-btn active">All Items (10)</button>
+          <button class="dash-filter-btn">Wood-Fired Pizzas (7)</button>
+          <button class="dash-filter-btn">Sides &amp; Starters (2)</button>
+          <button class="dash-filter-btn">Desserts (1)</button>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Active Live Menu Table</h3>
+            <span class="status-pill success"><i class="fa-solid fa-check"></i> 10 Items Live</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Pizza Item</th>
+                  <th>Category</th>
+                  <th>Base Price</th>
+                  <th>Stock Status</th>
+                  <th>Instant Stock Toggle</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminMenuTableBody">
+                <!-- Item 1 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/pepperoni.webp" alt="Pepperoni" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Pepperoni Feast</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Smoked Italian pepperoni &bull; 12" Hand-Tossed</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Premium</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹299</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 2 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/margherita.webp" alt="Margherita" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Classic Margherita</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">San Marzano tomatoes, fresh basil</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Classic</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹199</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 3 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/truffle-mushroom.webp" alt="Truffle" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Truffle Mushroom</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Wild mushrooms, white truffle oil</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Artisanal</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹399</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 4 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/bbq-chicken.webp" alt="BBQ Chicken" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">BBQ Chicken Supreme</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Smoked grilled chicken, red onions</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Non-Veg</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹349</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 5 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/veg-supreme.webp" alt="Veg Supreme" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Veg Supreme</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Olives, bell peppers, baby corn</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Veg</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹249</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 6 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/four-cheese.webp" alt="Four Cheese" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Four Cheese Truffle</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Fontina, gorgonzola, fresh mozzarella</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Artisanal</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹429</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 7 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/farmhouse.webp" alt="Farmhouse" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Farmhouse Harvest</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Caramelized onions, mushrooms, olives</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Veg</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹329</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 8 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/garlic-bread.webp" alt="Garlic Bread" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Stuffed Garlic Bread</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Fresh garlic butter, molten cheese</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Sides</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹149</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 9 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/french-fries.webp" alt="Fries" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Truffle Parmesan Fries</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Crispy golden fries tossed in truffle oil</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Sides</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹169</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+
+                <!-- Item 10 -->
+                <tr>
+                  <td>
+                    <div class="table-pizza-meta">
+                      <img src="assets/images/chocolate-brownie.webp" alt="Brownie" class="table-pizza-thumb">
+                      <div>
+                        <span class="table-pizza-title" style="font-weight:700; color:var(--white);">Belgian Chocolate Brownie</span>
+                        <span style="font-size:0.75rem; color:var(--text-light); display:block;">Warm dark chocolate, roasted walnuts</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="status-pill info">Dessert</span></td>
+                  <td><strong style="color:var(--admin-primary);">₹129</strong></td>
+                  <td><span class="stock-status-label status-pill success">In Stock</span></td>
+                  <td>
+                    <label class="switch-label">
+                      <input type="checkbox" class="stock-toggle-input" checked>
+                      <span class="switch-slider"></span>
+                    </label>
+                  </td>
+                  <td><button class="btn-table-action btn-delete-pizza" style="color:var(--admin-primary);"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 3: MASTER ORDERS LOG (10 ORDERS + FINANCIALS + RECONCILIATION)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-orders">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Master Orders Ledger</h1>
+            <p class="dash-page-subtitle">Historical records of all customer deliveries, revenue tags, and fulfillment times.</p>
+          </div>
+        </div>
+
+        <!-- 4 Financial KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Today's Gross Total</span>
+              <div class="kpi-icon-wrap kpi-icon-red"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+            <div class="kpi-val">₹42,850</div>
+            <span class="kpi-sub" style="color:#10b981;">128 Orders Total</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Net Kitchen Margin</span>
+              <div class="kpi-icon-wrap kpi-icon-green"><i class="fa-solid fa-chart-pie"></i></div>
+            </div>
+            <div class="kpi-val">38.4%</div>
+            <span class="kpi-sub" style="color:#10b981;">+2.1% vs last Saturday</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Average Order Value</span>
+              <div class="kpi-icon-wrap kpi-icon-amber"><i class="fa-solid fa-basket-shopping"></i></div>
+            </div>
+            <div class="kpi-val">₹485</div>
+            <span class="kpi-sub">Across dine-in &amp; delivery</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Dispute / Refund Rate</span>
+              <div class="kpi-icon-wrap kpi-icon-blue"><i class="fa-solid fa-shield-halved"></i></div>
+            </div>
+            <div class="kpi-val">0.00%</div>
+            <span class="kpi-sub" style="color:#10b981;">0 Refunds Today</span>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="dash-filter-bar">
+          <button class="dash-filter-btn active">All Orders (10)</button>
+          <button class="dash-filter-btn">In Kitchen (2)</button>
+          <button class="dash-filter-btn">In Transit (2)</button>
+          <button class="dash-filter-btn">Delivered (6)</button>
+        </div>
+
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Items Ordered</th>
+                  <th>Timestamp</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8492</strong></td>
+                  <td>Arun Kumar (+91 98765 43210)</td>
+                  <td>2x Pepperoni Feast, 1x Garlic Bread</td>
+                  <td>Today, 12:42 PM</td>
+                  <td><strong style="color:var(--admin-primary);">₹698</strong></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-fire"></i> Baking</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8492');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8493</strong></td>
+                  <td>Priya Nair (+91 98123 45678)</td>
+                  <td>1x Truffle Mushroom, 1x Brownie</td>
+                  <td>Today, 12:35 PM</td>
+                  <td><strong style="color:var(--admin-primary);">₹548</strong></td>
+                  <td><span class="status-pill info"><i class="fa-solid fa-motorcycle"></i> In Transit</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8493');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8494</strong></td>
+                  <td>Vikram Sharma (+91 97234 56789)</td>
+                  <td>1x Classic Margherita, 2x Fresh Juices</td>
+                  <td>Today, 12:48 PM</td>
+                  <td><strong style="color:var(--admin-primary);">₹359</strong></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-fire"></i> Baking</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8494');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8491</strong></td>
+                  <td>Sanjay Rao (+91 99887 66554)</td>
+                  <td>1x Classic Margherita</td>
+                  <td>Today, 12:10 PM</td>
+                  <td><strong style="color:var(--admin-primary);">₹199</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8491');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8490</strong></td>
+                  <td>Neha Gupta (+91 98450 12345)</td>
+                  <td>2x BBQ Chicken, 1x Cheesy Fries</td>
+                  <td>Today, 11:55 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹518</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8490');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8489</strong></td>
+                  <td>Rahul Verma (+91 98711 22334)</td>
+                  <td>1x Four Cheese, 1x Blood Orange Soda</td>
+                  <td>Today, 11:40 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹499</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8489');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8488</strong></td>
+                  <td>Deepa Menon (+91 97400 88990)</td>
+                  <td>1x Farmhouse Harvest</td>
+                  <td>Today, 11:25 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹329</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8488');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8487</strong></td>
+                  <td>Rohan Kulkarni (+91 98860 44556)</td>
+                  <td>2x Pepperoni Feast</td>
+                  <td>Today, 11:15 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹598</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8487');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8486</strong></td>
+                  <td>Ananya Sen (+91 98200 33445)</td>
+                  <td>1x Truffle Mushroom</td>
+                  <td>Today, 10:58 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹399</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8486');">Receipt</button></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#STK-8485</strong></td>
+                  <td>Karthik Balan (+91 99001 22334)</td>
+                  <td>1x Veg Supreme, 1x Stuffed Garlic Bread</td>
+                  <td>Today, 10:45 AM</td>
+                  <td><strong style="color:var(--admin-primary);">₹398</strong></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-check"></i> Delivered</span></td>
+                  <td><button class="btn-table-action" onclick="alert('Viewing receipt #STK-8485');">Receipt</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Export & End-of-Day Reconciliation Card -->
+        <div class="dash-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div>
+              <h4 style="font-size:1.05rem; font-weight:800; color:var(--white);"><i class="fa-solid fa-file-export" style="color:var(--admin-primary); margin-right:6px;"></i> Daily Shift Financial Reconciliation</h4>
+              <p style="font-size:0.82rem; color:var(--text-light); margin-top:2px;">Export complete order records, calculate GST liabilities, or print register Z-reports.</p>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn-table-action" onclick="alert('Generating official GST report...');"><i class="fa-solid fa-file-invoice"></i> GST Audit Report</button>
+              <button class="admin-btn-action" onclick="alert('Exporting full ledger to CSV...');"><i class="fa-solid fa-download"></i> Export CSV Ledger</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 4: CUSTOMERS DIRECTORY (8 CUSTOMERS + LTV METRICS + RETENTION)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-customers">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Registered Customer Directory</h1>
+            <p class="dash-page-subtitle">Track diner lifetime value, loyalty tiers, and contact directories.</p>
+          </div>
+        </div>
+
+        <!-- Customer Metrics KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Registered Diners</span>
+              <div class="kpi-icon-wrap kpi-icon-red"><i class="fa-solid fa-users"></i></div>
+            </div>
+            <div class="kpi-val">1,842</div>
+            <span class="kpi-sub" style="color:#10b981;">+48 New this week</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">VIP Gold Members</span>
+              <div class="kpi-icon-wrap kpi-icon-amber"><i class="fa-solid fa-crown"></i></div>
+            </div>
+            <div class="kpi-val">148</div>
+            <span class="kpi-sub">8% of total customer base</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Repeat Order Rate</span>
+              <div class="kpi-icon-wrap kpi-icon-green"><i class="fa-solid fa-rotate-right"></i></div>
+            </div>
+            <div class="kpi-val">78.4%</div>
+            <span class="kpi-sub" style="color:#10b981;">Top in artisanal category</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Average Customer LTV</span>
+              <div class="kpi-icon-wrap kpi-icon-blue"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            </div>
+            <div class="kpi-val">₹4,920</div>
+            <span class="kpi-sub">Across all active accounts</span>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="dash-filter-bar">
+          <button class="dash-filter-btn active">All Customers (8)</button>
+          <button class="dash-filter-btn">VIP Gold (3)</button>
+          <button class="dash-filter-btn">Silver (3)</button>
+          <button class="dash-filter-btn">Bronze (2)</button>
+        </div>
+
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Email</th>
+                  <th>Total Orders</th>
+                  <th>Lifetime Spend</th>
+                  <th>Tier</th>
+                  <th>Delivery Hub</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--white);">Arun Kumar</strong></td>
+                  <td>client@stackly.com</td>
+                  <td>24 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹12,450</strong></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-crown"></i> VIP Gold</span></td>
+                  <td>Bellandur Hub</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Priya Nair</strong></td>
+                  <td>priya.nair@techcorp.in</td>
+                  <td>18 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹9,820</strong></td>
+                  <td><span class="status-pill info">Silver</span></td>
+                  <td>HSR Layout</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Vikram Sharma</strong></td>
+                  <td>vikram.sharma@gmail.com</td>
+                  <td>11 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹5,340</strong></td>
+                  <td><span class="status-pill info">Silver</span></td>
+                  <td>Indiranagar</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Sanjay Rao</strong></td>
+                  <td>sanjay.rao@consulting.com</td>
+                  <td>29 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹16,890</strong></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-crown"></i> VIP Gold</span></td>
+                  <td>Koramangala</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Neha Gupta</strong></td>
+                  <td>neha.g@startup.io</td>
+                  <td>14 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹6,720</strong></td>
+                  <td><span class="status-pill info">Silver</span></td>
+                  <td>Bellandur</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Rohan Kulkarni</strong></td>
+                  <td>rohan.k@fintech.co</td>
+                  <td>32 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹19,250</strong></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-crown"></i> VIP Gold</span></td>
+                  <td>Indiranagar</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Deepa Menon</strong></td>
+                  <td>deepa.m@designstudio.in</td>
+                  <td>6 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹2,980</strong></td>
+                  <td><span class="status-pill info">Bronze</span></td>
+                  <td>HSR Layout</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Karthik Balan</strong></td>
+                  <td>karthik.b@cloudnet.org</td>
+                  <td>4 Orders</td>
+                  <td><strong style="color:var(--admin-primary);">₹1,850</strong></td>
+                  <td><span class="status-pill info">Bronze</span></td>
+                  <td>Bellandur</td>
+                  <td><span class="status-pill success">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Customer Retention Automation Card -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-bullhorn" style="color:var(--admin-primary); margin-right:6px;"></i> Automated Customer Engagement &amp; Winback</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Configured rules to reward frequent diners and re-activate quiet accounts.</p>
+            </div>
+            <span class="status-pill success"><i class="fa-solid fa-robot"></i> 3 Automations Active</span>
+          </div>
+
+          <div class="telemetry-stat-grid">
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-cake-candles" style="color:#f59e0b;"></i> Birthday Feast Trigger</span>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--white);">Free 12" Pie Voucher</div>
+              <span class="telemetry-stat-val">Dispatches 3 days before member birthday</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-user-clock" style="color:#38bdf8;"></i> 14-Day Inactivity Winback</span>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--white);">20% Come-Back Promo</div>
+              <span class="telemetry-stat-val">Recovers 24% of lapsed diners</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-medal" style="color:var(--admin-primary);"></i> VIP Milestone Drop</span>
+              <div style="font-size:1.1rem; font-weight:800; color:var(--white);">Secret Off-Menu Tasting</div>
+              <span class="telemetry-stat-val">Triggers automatically at 20 lifetime orders</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 5: OFFERS & PROMO COUPONS (6 COUPONS + ANALYTICS + BUILDER)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-offers">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Promotional Discount Coupons</h1>
+            <p class="dash-page-subtitle">Manage marketing vouchers and redemption statistics.</p>
+          </div>
+          <button class="admin-btn-action" onclick="document.getElementById('couponCreatorCard').scrollIntoView({behavior:'smooth'});">
+            <i class="fa-solid fa-plus"></i> Create Coupon
+          </button>
+        </div>
+
+        <!-- 6 Live Promo Coupon Cards -->
+        <div class="kpi-grid" style="margin-bottom:28px;">
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">STACKFIRST30</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">30% OFF on first 3 customer orders</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>412 uses</strong> &bull; Generated: <strong>₹48,200</strong></div>
+          </div>
+
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">PIZZAFEAST50</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">Flat ₹50 OFF on orders over ₹499</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>689 uses</strong> &bull; Generated: <strong>₹86,400</strong></div>
+          </div>
+
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">WEEKENDCHEF</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">Free Stuffed Garlic Bread with 2 Pizzas</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>145 uses</strong> &bull; Generated: <strong>₹32,100</strong></div>
+          </div>
+
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">MIDNIGHTCRUST</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">Flat 20% OFF between 11 PM &amp; 2 AM</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>218 uses</strong> &bull; Generated: <strong>₹24,900</strong></div>
+          </div>
+
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">CORPORATE20</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">20% Bulk Catering Discount for Tech Parks</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>54 uses</strong> &bull; Generated: <strong>₹68,500</strong></div>
+          </div>
+
+          <div class="dash-card">
+            <span class="status-pill success" style="margin-bottom:8px;">Active</span>
+            <h3 style="font-size:1.35rem; font-weight:800; color:var(--admin-primary);">FREEDELIVERY</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:12px;">Free Courier Handover on orders over ₹299</p>
+            <div style="font-size:0.8rem; color:var(--text-light);">Redemptions: <strong>920 uses</strong> &bull; Generated: <strong>₹112,000</strong></div>
+          </div>
+        </div>
+
+        <!-- Campaign Performance Table & ROI Summary -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-chart-line" style="color:var(--admin-primary); margin-right:6px;"></i> Marketing ROI &amp; Redemption Metrics</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Track campaign effectiveness and net revenue contribution.</p>
+            </div>
+            <span class="status-pill success"><i class="fa-solid fa-bolt"></i> 20.2x Net ROI</span>
+          </div>
+
+          <div class="telemetry-stat-grid">
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-ticket" style="color:var(--admin-primary);"></i> Total Redemptions</span>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--white);">2,438 Uses</div>
+              <span class="telemetry-stat-val">Across 6 active voucher codes</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-tag" style="color:#f59e0b;"></i> Promo Discount Cost</span>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--white);">₹18,400</div>
+              <span class="telemetry-stat-val">Direct discounts absorbed</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-indian-rupee-sign" style="color:#10b981;"></i> Net Attributed Revenue</span>
+              <div style="font-size:1.5rem; font-weight:800; color:var(--white);">₹372,100</div>
+              <span class="telemetry-stat-val">Total revenue generated</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inline Coupon Creator Card -->
+        <div class="dash-card" id="couponCreatorCard">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-plus-circle" style="color:var(--admin-primary); margin-right:6px;"></i> Create New Promotional Voucher</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Deploy instant discount codes to the storefront and user dashboards.</p>
+            </div>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('New promotional code created and live!'); this.reset();">
+            <div class="dash-form-grid">
+              <div class="form-group">
+                <label class="form-label">Coupon Code (Uppercase)</label>
+                <input type="text" class="form-input" placeholder="e.g. FLASH50, SUNDAYCRUST" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Discount Type &amp; Value</label>
+                <input type="text" class="form-input" placeholder="e.g. 25% OFF or Flat ₹75 OFF" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Minimum Order Requirement (₹)</label>
+                <input type="number" class="form-input" placeholder="e.g. 399" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Redemption Cap Limit</label>
+                <input type="number" class="form-input" placeholder="e.g. 500 uses (Leave blank for unlimited)">
+              </div>
+            </div>
+
+            <div style="margin-top:20px; display:flex; gap:12px;">
+              <button type="submit" class="admin-btn-action" style="padding:10px 24px;"><i class="fa-solid fa-check"></i> Launch Campaign</button>
+              <button type="reset" class="btn-table-action" style="padding:10px 18px;">Reset Form</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 6: FLEET & DELIVERY TELEMETRY (7 COURIERS + ZONE VELOCITY)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-delivery">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Delivery Fleet Telemetry</h1>
+            <p class="dash-page-subtitle">Real-time status of thermal pod couriers and active transit radiuses.</p>
+          </div>
+        </div>
+
+        <!-- Fleet KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Active Electric Fleet</span>
+              <div class="kpi-icon-wrap kpi-icon-red"><i class="fa-solid fa-motorcycle"></i></div>
+            </div>
+            <div class="kpi-val">14 Couriers</div>
+            <span class="kpi-sub" style="color:#10b981;">100% Zero-Emission Ather/Ola</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Deliveries in Transit</span>
+              <div class="kpi-icon-wrap kpi-icon-amber"><i class="fa-solid fa-route"></i></div>
+            </div>
+            <div class="kpi-val">9 Active</div>
+            <span class="kpi-sub">5 Couriers Standby at Kitchen</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Average Delivery Speed</span>
+              <div class="kpi-icon-wrap kpi-icon-green"><i class="fa-solid fa-stopwatch"></i></div>
+            </div>
+            <div class="kpi-val">22.4 min</div>
+            <span class="kpi-sub" style="color:#10b981;">Strict 30m SLA compliance: 98.7%</span>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-card-top">
+              <span class="kpi-label">Fleet Battery Health</span>
+              <div class="kpi-icon-wrap kpi-icon-blue"><i class="fa-solid fa-battery-three-quarters"></i></div>
+            </div>
+            <div class="kpi-val">92% Avg</div>
+            <span class="kpi-sub">Smart solar swap charging hub</span>
+          </div>
+        </div>
+
+        <!-- 7 Couriers Telemetry Table -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Live Active Couriers Telemetry</h3>
+            <span class="status-pill success"><i class="fa-solid fa-wifi"></i> GPS Polling Active</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Courier ID</th>
+                  <th>Driver Name</th>
+                  <th>Vehicle Model</th>
+                  <th>Battery</th>
+                  <th>Current Assignment</th>
+                  <th>Sector Zone</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-14</strong></td>
+                  <td>Karan S.</td>
+                  <td>Ather 450X (KA-03-EX-9941)</td>
+                  <td><span class="status-pill success">94%</span></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-route"></i> Delivering #8492</span></td>
+                  <td>Bellandur Sector 4</td>
+                  <td><strong style="color:#f59e0b;">★ 4.95</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-08</strong></td>
+                  <td>Ramesh M.</td>
+                  <td>Ola S1 Pro (KA-04-AB-1249)</td>
+                  <td><span class="status-pill success">82%</span></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-route"></i> Delivering #8493</span></td>
+                  <td>HSR Layout Ring Rd</td>
+                  <td><strong style="color:#f59e0b;">★ 4.90</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-22</strong></td>
+                  <td>Anil K.</td>
+                  <td>TVS iQube (KA-01-EE-7721)</td>
+                  <td><span class="status-pill success">98%</span></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-store"></i> Standby at Hub</span></td>
+                  <td>Central Kitchen HQ</td>
+                  <td><strong style="color:#f59e0b;">★ 4.88</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-05</strong></td>
+                  <td>Suresh P.</td>
+                  <td>Ather 450X (KA-05-MK-4412)</td>
+                  <td><span class="status-pill success">76%</span></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-route"></i> Delivering #8494</span></td>
+                  <td>Indiranagar 100ft Rd</td>
+                  <td><strong style="color:#f59e0b;">★ 4.97</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-19</strong></td>
+                  <td>Vijay R.</td>
+                  <td>Ola S1 Pro (KA-02-LL-8831)</td>
+                  <td><span class="status-pill success">89%</span></td>
+                  <td><span class="status-pill info"><i class="fa-solid fa-arrow-turn-up"></i> Returning to Hub</span></td>
+                  <td>Koramangala 4th Block</td>
+                  <td><strong style="color:#f59e0b;">★ 4.92</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-11</strong></td>
+                  <td>Manoj T.</td>
+                  <td>TVS iQube (KA-03-JJ-1940)</td>
+                  <td><span class="status-pill warning">65%</span></td>
+                  <td><span class="status-pill warning"><i class="fa-solid fa-route"></i> Delivering #8490</span></td>
+                  <td>Bellandur Gate</td>
+                  <td><strong style="color:#f59e0b;">★ 4.85</strong></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">#RIDER-03</strong></td>
+                  <td>Deepak N.</td>
+                  <td>Ather 450X (KA-04-ZZ-6622)</td>
+                  <td><span class="status-pill success">91%</span></td>
+                  <td><span class="status-pill success"><i class="fa-solid fa-store"></i> Standby at Hub</span></td>
+                  <td>Central Kitchen HQ</td>
+                  <td><strong style="color:#f59e0b;">★ 4.94</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Delivery Sector Hotspots & SLA Performance -->
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-map-location-dot" style="color:var(--admin-primary); margin-right:6px;"></i> Delivery Zone SLA Performance</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Real-time dispatch metrics across primary Bengaluru dining clusters.</p>
+            </div>
+            <span class="status-pill success"><i class="fa-solid fa-shield-check"></i> Sub-30m Zone Guaranteed</span>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Sector Zone</th>
+                  <th>Active In-Flight</th>
+                  <th>Avg Delivery Time</th>
+                  <th>Distance from Kitchen</th>
+                  <th>SLA Compliance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color:var(--white);">Bellandur &amp; Outer Ring Road</strong></td>
+                  <td>6 Orders</td>
+                  <td>21.2 min</td>
+                  <td>3.4 km</td>
+                  <td><span class="status-pill success">100% On-Time</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">HSR Layout (Sectors 1 - 7)</strong></td>
+                  <td>4 Orders</td>
+                  <td>23.5 min</td>
+                  <td>4.8 km</td>
+                  <td><span class="status-pill success">98.2% On-Time</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Indiranagar &amp; Domlur</strong></td>
+                  <td>5 Orders</td>
+                  <td>18.4 min</td>
+                  <td>2.1 km</td>
+                  <td><span class="status-pill success">100% On-Time</span></td>
+                </tr>
+                <tr>
+                  <td><strong style="color:var(--white);">Koramangala (Blocks 1 - 6)</strong></td>
+                  <td>3 Orders</td>
+                  <td>24.1 min</td>
+                  <td>5.2 km</td>
+                  <td><span class="status-pill success">96.8% On-Time</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           TAB 7: KITCHEN SETTINGS & CONTROLS (EXPANDED TO 4 PANELS)
+           ====================================================================== -->
+      <section class="admin-tab-panel" id="admin-tab-settings">
+        <div class="dash-page-header">
+          <div>
+            <h1 class="dash-page-title">Kitchen Controls &amp; Store Settings</h1>
+            <p class="dash-page-subtitle">Configure operational hours, maximum delivery radiuses, and emergency dispatch switches.</p>
+          </div>
+        </div>
+
+        <!-- Panel 1: Operational Core Settings -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-sliders" style="color:var(--admin-primary); margin-right:6px;"></i> Core Kitchen Operating Controls</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Real-time parameters governing online order acceptance and stone thermal targets.</p>
+            </div>
+            <span class="status-pill success">Live Operations</span>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('Kitchen operating settings successfully updated!');">
+            <div class="dash-form-grid">
+              <div class="form-group">
+                <label class="form-label">Storefront Kitchen Status</label>
+                <select class="form-input">
+                  <option selected>Online (Accepting Customer Orders)</option>
+                  <option>Busy (Surge Protocol +10m Notice)</option>
+                  <option>Paused (Emergency Kitchen Maintenance)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Wood-Fired Oven Core Temperature Target</label>
+                <input type="text" class="form-input" value="450°C (Beechwood Fire Embers)" readonly style="opacity:0.8;">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Strict 30-Min Delivery Radius Perimeter</label>
+                <select class="form-input">
+                  <option selected>8.5 Kilometers (Strict 30m SLA)</option>
+                  <option>10.0 Kilometers (Extended Buffer)</option>
+                  <option>12.0 Kilometers (Corporate Orders Only)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Maximum Concurrent Baking Ceiling</label>
+                <select class="form-input">
+                  <option selected>20 Concurrent Pies (Safe Peak)</option>
+                  <option>25 Concurrent Pies (High Surge)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top:20px; display:flex; gap:12px;">
+              <button type="submit" class="admin-btn-action" style="padding:10px 24px;"><i class="fa-solid fa-save"></i> Save Operating Controls</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Panel 2: Operating Hours & Shift Schedules -->
+        <div class="dash-card" style="margin-bottom:28px;">
+          <div class="dash-card-header">
+            <div>
+              <h3 class="dash-card-title"><i class="fa-solid fa-clock" style="color:var(--admin-primary); margin-right:6px;"></i> Kitchen Operating Shift Schedule</h3>
+              <p style="font-size:0.8rem; color:var(--text-light); margin-top:2px;">Automated storefront opening and closing timers across days.</p>
+            </div>
+            <span class="status-pill info">Automated Timers</span>
+          </div>
+
+          <div class="telemetry-stat-grid">
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-sun" style="color:#f59e0b;"></i> Lunch Shift</span>
+              <div style="font-size:1.15rem; font-weight:800; color:var(--white);">11:00 AM - 04:00 PM</div>
+              <span class="telemetry-stat-val">Monday through Sunday &bull; Active</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-moon" style="color:#38bdf8;"></i> Dinner Shift</span>
+              <div style="font-size:1.15rem; font-weight:800; color:var(--white);">06:00 PM - 02:00 AM</div>
+              <span class="telemetry-stat-val">Peak weekend wood-fire volume</span>
+            </div>
+
+            <div class="telemetry-stat-card">
+              <span class="telemetry-stat-title"><i class="fa-solid fa-pizza-slice" style="color:var(--admin-primary);"></i> Late Night Window</span>
+              <div style="font-size:1.15rem; font-weight:800; color:var(--white);">11:00 PM - 02:00 AM</div>
+              <span class="telemetry-stat-val">Limited night-owl crust menu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Hardware Diagnostics & Emergency Pause -->
+        <div class="dash-two-col">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title"><i class="fa-solid fa-print" style="color:var(--admin-primary); margin-right:6px;"></i> POS &amp; Hardware Diagnostics</h3>
+              <span class="status-pill success">All Systems Go</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.85rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <span>EPSON TM-T88VI Thermal Kitchen Printer</span>
+                <span class="status-pill success"><i class="fa-solid fa-check"></i> Connected (Port 9100)</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <span>Kitchen Display Screen (KDS 1 &amp; 2)</span>
+                <span class="status-pill success"><i class="fa-solid fa-check"></i> 2 Displays Active</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:8px; padding:10px 14px;">
+                <span>Incoming Order Sound Alert (85dB Bell)</span>
+                <span class="status-pill info">Enabled</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title"><i class="fa-solid fa-triangle-exclamation" style="color:var(--admin-primary); margin-right:6px;"></i> Emergency Kitchen Switch</h3>
+              <span class="status-pill danger">Emergency Control</span>
+            </div>
+
+            <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.5; margin-bottom:16px;">
+              Temporarily halts new customer orders on the storefront for 15 minutes during extreme oven rushes or dough transitions. Existing orders continue baking.
+            </p>
+
+            <button class="btn-top-action" onclick="alert('Emergency 15-minute pause activated. Storefront set to Busy state.');" style="background:#dc2626; border-color:#dc2626; width:100%; text-align:center; padding:12px;">
+              <i class="fa-solid fa-pause"></i> Pause Online Orders for 15 Mins
+            </button>
+          </div>
+        </div>
+      </section>
+</main>
+  </div>
+
+  <!-- Add New Pizza Modal -->
+  <div class="admin-modal-backdrop" id="addPizzaModal">
+    <div class="admin-modal-box">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Add New Pizza to Live Menu</h3>
+        <button type="button" id="closeAddPizzaBtn" style="background:none; border:none; color:var(--text-light); font-size:1.2rem; cursor:pointer;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="addPizzaForm">
+        <div class="form-group" style="margin-bottom:14px;">
+          <label class="form-label">Pizza Name</label>
+          <input type="text" id="newPizzaTitle" class="form-input" placeholder="e.g. Quattro Formaggi Deluxe" required>
+        </div>
+
+        <div class="dash-form-grid" style="margin-bottom:14px;">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="newPizzaCategory" class="form-input">
+              <option value="Classic">Classic</option>
+              <option value="Premium" selected>Premium</option>
+              <option value="Veg">Veg</option>
+              <option value="Non-Veg">Non-Veg</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Price (₹ INR)</label>
+            <input type="number" id="newPizzaPrice" class="form-input" placeholder="e.g. 349" required>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px;">
+          <label class="form-label">Description &amp; Key Ingredients</label>
+          <textarea class="form-input" rows="2" placeholder="e.g. Gorgonzola, fontina, whole mozzarella, rosemary..."></textarea>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px;">
+          <button type="button" class="btn-table-action" onclick="document.getElementById('addPizzaModal').classList.remove('active');">Cancel</button>
+          <button type="submit" class="admin-btn-action">Add to Live Menu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- GSAP & Animation Suite -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/animations.js"></script>
+  <!-- Admin Script -->
+  <script src="js/admindashboard.js"></script>
+</body>
+</html>

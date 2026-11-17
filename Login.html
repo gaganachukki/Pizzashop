@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — STACKLY | Access Your Pizza Dashboard</title>
+  <meta name="description" content="Sign in to your STACKLY account to manage pizza orders, explore exclusive deals, or access the admin panel.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins exclusively -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- SPLIT SCREEN LAYOUT -->
+  <div class="auth-split-layout">
+    
+    <!-- Left: Food Photography Side -->
+    <div class="auth-visual-side">
+      <div class="auth-visual-overlay"></div>
+      
+      <div class="auth-visual-content">
+        <span class="auth-visual-tag">
+          <i class="fa-solid fa-pizza-slice"></i> Premium Dining
+        </span>
+        <h2 class="auth-visual-heading">
+          Every Slice Tells a <span class="highlight-primary">Delicious</span> Story.
+        </h2>
+        <p class="auth-visual-desc">
+          Sign in to your personalized dashboard, track your hot delivery in real-time, or manage pizzeria operations with ease.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Login Form Side -->
+    <div class="auth-form-side">
+      <!-- Top Nav: Back to Home + Logo -->
+      <div class="auth-top-nav">
+        <a href="index.html" class="auth-back-link">
+          <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+        <a href="index.html">
+          <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="auth-logo-img">
+        </a>
+      </div>
+
+      <div class="auth-card-body">
+        <h1 class="auth-heading">Welcome <span class="highlight-primary">Back</span>!</h1>
+        <p class="auth-subtext">Sign in to continue your delicious STACKLY experience.</p>
+
+        <form id="login-form" novalidate>
+          <!-- 1. Login As Dropdown -->
+          <div class="form-group">
+            <label for="login-role" class="form-label">Login As *</label>
+            <select id="login-role" class="form-control form-select" required>
+              <option value="Client" selected>Client (Customer Dashboard)</option>
+              <option value="Admin">Admin (Shop Management)</option>
+            </select>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <!-- 2. Email Address -->
+          <div class="form-group">
+            <label for="login-email" class="form-label">User ID / Email Address *</label>
+            <input type="email" id="login-email" class="form-control" placeholder="e.g. arun.kumar@gmail.com" required>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <!-- 3. Password -->
+          <div class="form-group">
+            <label for="login-password" class="form-label">Password *</label>
+            <div class="password-input-wrap">
+              <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+              <i class="fa-solid fa-eye toggle-password-icon" title="Toggle password visibility"></i>
+            </div>
+            <div class="form-error-msg"></div>
+          </div>
+
+          <!-- 4. Remember & Forgot -->
+          <div class="auth-options-row">
+            <label class="auth-checkbox-label">
+              <input type="checkbox" id="remember-me">
+              <span>Remember Me</span>
+            </label>
+            <a href="404.html" class="auth-forgot-link">Forgot Password?</a>
+          </div>
+
+          <!-- 5. Submit Button -->
+          <button type="submit" id="btn-login-submit" class="btn btn-primary auth-btn-submit">
+            Login <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+          <!-- 6. Signup Switch Prompt -->
+          <p class="auth-switch-prompt">
+            Don't have an account? <a href="Signup.html" class="auth-switch-link">Create an Account</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GSAP & Animation Suite -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/animations.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

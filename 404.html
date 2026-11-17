@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Pizza Out of the Menu | STACKLY</title>
+  <meta name="description" content="Oops! This pizza is out of the menu. Head back to STACKLY to find delicious artisan pizzas.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins exclusively -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .error-page-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: radial-gradient(circle at center, rgba(229, 9, 20, 0.25) 0%, rgba(13, 13, 13, 0.98) 75%),
+                  url('assets/images/restaurant-interior.webp') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-page-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(13, 13, 13, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .error-content-box {
+      position: relative;
+      z-index: 10;
+      max-width: 680px;
+    }
+
+    .error-404-glitch {
+      font-size: clamp(5.5rem, 15vw, 10rem);
+      font-weight: 900;
+      color: var(--primary, #E50914);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-shadow: 0 0 50px rgba(229, 9, 20, 0.75), 0 2px 10px rgba(0, 0, 0, 0.8);
+      margin-bottom: 0.5rem;
+    }
+
+    .error-pizza-img-wrap {
+      width: min(220px, 50vw);
+      height: min(220px, 50vw);
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .error-pizza-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 35px rgba(229, 9, 20, 0.35);
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      animation: rotateSlow 25s infinite linear;
+    }
+
+    @keyframes rotateSlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="error-page-wrap">
+    <div class="error-page-overlay"></div>
+
+    <!-- Floating Decor -->
+    <div class="floating-item floating-basil" style="top:15%; left:12%;"></div>
+    <div class="floating-item floating-tomato" style="top:25%; right:15%;"></div>
+    <div class="floating-item floating-mushroom" style="bottom:18%; left:18%;"></div>
+
+    <div class="error-content-box">
+      <div class="error-404-glitch">404!</div>
+
+      <div class="error-pizza-img-wrap">
+        <img src="assets/images/cheese-burst.webp" alt="Missing Pizza Slice" class="error-pizza-img">
+      </div>
+
+      <h1 class="hero-heading" style="font-size:clamp(1.85rem, 4vw, 2.75rem); margin-bottom:1rem;">
+        Oops! This Pizza Is <span class="highlight-primary">Out of the Menu</span>!
+      </h1>
+
+      <p class="section-desc" style="margin-left:auto; margin-right:auto; margin-bottom:1rem;">
+        The page you're looking for is unavailable. Let's get you back to something delicious!
+      </p>
+
+      <div class="error-actions-row">
+        <button class="btn btn-secondary" onclick="goBack()" style="padding:0.85rem 2rem;">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <a href="index.html" class="btn btn-primary" style="padding:0.85rem 2rem;">
+          <i class="fa-solid fa-house"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & Animation Suite -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+</body>
+</html>

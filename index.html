@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY — Delicious Pizza For Every Mood | Handcrafted Pizza & Delivery</title>
+  <meta name="description" content="Order hot, fresh, artisanal pizza from STACKLY. Premium ingredients, cheesy crusts, and fast delivery at your doorstep.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins & Caveat Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVBAR (STICKY & RESPONSIVE)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <!-- Left: Logo -->
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Home">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="brand-logo-img">
+        <span class="brand-fallback-text">STACKLY</span>
+      </a>
+
+      <!-- Center: Navigation -->
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="menuoff.html" class="nav-link">Menuoff</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart, Login -->
+      <div class="nav-actions">
+        <button class="nav-btn-icon" data-action="open-search" aria-label="Search menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="nav-btn-icon" data-action="open-cart" aria-label="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <a href="Login.html" class="btn btn-primary nav-login-btn">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" aria-label="STACKLY Home"><img src="assets/images/Brand-logo.webp" alt="STACKLY" style="height:36px; width:auto;"></a>
+      <button class="modal-close mobile-drawer-close" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="About.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="menuoff.html" class="mobile-nav-link"><span>Menuoff</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="mobile-drawer-actions">
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Login to Account</a>
+      <a href="Signup.html" class="btn btn-secondary" style="width:100%;">Create New Account</a>
+    </div>
+  </div>
+
+  <!-- Search Overlay Modal -->
+  <div class="search-modal">
+    <div class="search-container">
+      <button class="modal-close search-modal-close" aria-label="Close Search">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" placeholder="Search pizza, sides, drinks...">
+        <button class="search-submit-btn" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="search-quick-tags">
+        <span>Popular:</span>
+        <button class="search-tag-chip" data-tag="Margherita">Margherita</button>
+        <button class="search-tag-chip" data-tag="Pepperoni">Pepperoni Feast</button>
+        <button class="search-tag-chip" data-tag="Cheese Burst">Cheese Burst</button>
+        <button class="search-tag-chip" data-tag="Garlic Bread">Garlic Bread</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Your Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i>
+        <span>Your Pizza Bag</span>
+      </div>
+      <button class="modal-close cart-drawer-close" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-drawer-items">
+      <!-- Populated dynamically by navigation.js -->
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span class="cart-summary-subtotal-val">₹0</span>
+      </div>
+      <div class="cart-summary-row">
+        <span>Taxes &amp; Delivery</span>
+        <span style="color:var(--primary); font-weight:600;">FREE</span>
+      </div>
+      <div class="cart-summary-row cart-summary-total">
+        <span>Total Amount</span>
+        <span class="cart-summary-total-val" style="color:var(--primary);">₹0</span>
+      </div>
+      <button class="btn btn-primary cart-checkout-btn">
+        <span>Place Order Now</span> <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO — DELICIOUS PIZZA FOR EVERY MOOD
+       ========================================================================== -->
+  <main>
+    <section class="hero-section">
+      <!-- Background Cover Slideshow (2.5s Fade-In Loop) -->
+      <div class="hero-bg-slider" aria-hidden="true">
+        <div class="hero-bg-slide active" style="background-image: url('assets/images/restaurant-interior.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/images/hero-bg-1.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/images/hero-bg-2.webp');"></div>
+        <div class="hero-bg-slide" style="background-image: url('assets/images/hero-bg-3.webp');"></div>
+      </div>
+
+      <div class="container-wide hero-container">
+        <div class="hero-grid">
+          <!-- Left Column: Content -->
+          <div class="hero-content">
+            <div class="hero-badge-wrap">
+              <span class="hero-script-eyebrow">~ Hot &amp; Delicious ~</span>
+            </div>
+
+            <h1 class="hero-heading">
+              <span class="hero-highlight">Pizza</span><br>
+              for Every Mood!
+            </h1>
+
+            <p class="hero-desc">
+              Fresh ingredients. Crispy crust. Unforgettable taste. Order your favourite pizza now!
+            </p>
+
+            <div class="hero-ctas">
+              <a href="404.html" class="btn btn-primary">
+                Order Now <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <button class="btn btn-secondary" data-action="watch-story">
+                View Menu <i class="fa-solid fa-play" style="font-size:0.75rem; margin-left:0.25rem;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Composition with Cheese Pull & Floating Elements -->
+          <div class="hero-pizza-composition">
+            <!-- Script Quote from reference image -->
+            <div class="hero-quote-sticker">
+              Life is better<br>with <span>Pizza</span> ✨
+            </div>
+
+            <div class="hero-main-pizza-wrap">
+              <img src="assets/images/hero-pizza.webp" alt="Freshly baked artisan pizza with melted cheese pull" class="hero-pizza-board">
+              
+              <!-- Steam particles -->
+              <div class="steam-wrap">
+                <div class="steam-particle"></div>
+                <div class="steam-particle"></div>
+                <div class="steam-particle"></div>
+              </div>
+            </div>
+
+            <!-- Floating Food Elements -->
+            <div class="floating-item hero-floating-decor floating-basil floating-basil-1"></div>
+            <div class="floating-item hero-floating-decor floating-tomato floating-tomato-1"></div>
+            <div class="floating-item hero-floating-decor floating-mushroom floating-mushroom-1"></div>
+            <div class="floating-item hero-floating-decor floating-basil floating-basil-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Curved Wave at Bottom -->
+      <svg class="hero-wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none">
+        <path d="M0,32L60,37.3C120,43,240,53,360,48C480,43,600,21,720,16C840,11,960,21,1080,32C1200,43,1320,53,1380,58.7L1440,64L1440,64L1380,64C1320,64,1200,64,1080,64C960,64,840,64,720,64C600,64,480,64,360,64C240,64,120,64,60,64L0,64Z"></path>
+      </svg>
+    </section>
+
+    <!-- HERO SERVICE STRIP (Overlapping) -->
+    <div class="hero-service-strip-wrap">
+      <div class="container-wide">
+        <div class="hero-service-strip">
+          <div class="service-strip-col">
+            <div class="service-strip-icon-box">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <div class="service-strip-info">
+              <h4>Fast Delivery</h4>
+              <p>Hot &amp; fresh, at your doorstep.</p>
+            </div>
+          </div>
+
+          <div class="service-strip-col">
+            <div class="service-strip-icon-box">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="service-strip-info">
+              <h4>Quality Ingredients</h4>
+              <p>Only the best for you.</p>
+            </div>
+          </div>
+
+          <div class="service-strip-col">
+            <div class="service-strip-icon-box">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div class="service-strip-info">
+              <h4>24/7 Support</h4>
+              <p>We're here to help anytime.</p>
+            </div>
+          </div>
+
+          <div class="service-strip-col">
+            <div class="service-strip-icon-box">
+              <i class="fa-solid fa-gift"></i>
+            </div>
+            <div class="service-strip-info">
+              <h4>Exciting Offers</h4>
+              <p>More pizza, more savings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SECTION 01 — OUR MENU
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Our Menu</div>
+          <h2 class="section-heading">Choose Your <span class="highlight-primary">Favourite</span> Pizza</h2>
+          <p class="section-desc">From classic Margherita to loaded specials — we have something for everyone!</p>
+        </div>
+
+        <div class="menu-showcase-grid">
+          <!-- 3 Featured Pizza Cards -->
+          <div class="featured-pizzas-row">
+            <!-- Margherita -->
+            <div class="featured-pizza-card">
+              <div class="pizza-card-img-wrap">
+                <img src="assets/images/margherita.webp" alt="Margherita Pizza" class="pizza-card-img">
+              </div>
+              <h3 class="pizza-card-title">Margherita</h3>
+              <p class="pizza-card-desc">Fresh mozzarella, tomato sauce, and basil leaves.</p>
+              <div class="pizza-card-bottom">
+                <div class="pizza-card-price">₹199</div>
+                <button class="pizza-card-cart-btn" onclick="StacklyStorage.addToCart({id:'p-1', name:'Margherita', price:199, image:'assets/images/margherita.webp'})" title="Add Margherita to cart" aria-label="Add Margherita to cart">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Veg Supreme -->
+            <div class="featured-pizza-card">
+              <div class="pizza-card-img-wrap">
+                <img src="assets/images/veg-supreme.webp" alt="Veg Supreme Pizza" class="pizza-card-img">
+              </div>
+              <h3 class="pizza-card-title">Veg Supreme</h3>
+              <p class="pizza-card-desc">Fresh vegetables, mozzarella cheese, special seasoning.</p>
+              <div class="pizza-card-bottom">
+                <div class="pizza-card-price">₹249</div>
+                <button class="pizza-card-cart-btn" onclick="StacklyStorage.addToCart({id:'p-2', name:'Veg Supreme', price:249, image:'assets/images/veg-supreme.webp'})" title="Add Veg Supreme to cart" aria-label="Add Veg Supreme to cart">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Pepperoni Feast -->
+            <div class="featured-pizza-card">
+              <div class="pizza-card-img-wrap">
+                <img src="assets/images/pepperoni.webp" alt="Pepperoni Feast Pizza" class="pizza-card-img">
+              </div>
+              <h3 class="pizza-card-title">Pepperoni Feast</h3>
+              <p class="pizza-card-desc">Premium pepperoni, mozzarella cheese, rich tomato sauce.</p>
+              <div class="pizza-card-bottom">
+                <div class="pizza-card-price">₹299</div>
+                <button class="pizza-card-cart-btn" onclick="StacklyStorage.addToCart({id:'p-3', name:'Pepperoni Feast', price:299, image:'assets/images/pepperoni.webp'})" title="Add Pepperoni Feast to cart" aria-label="Add Pepperoni Feast to cart">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Promotional Banner Card (Right) -->
+          <div class="menu-promo-banner-card">
+            <div class="promo-badge">Special Welcome Deal</div>
+            <div class="promo-discount-num">Get 30% OFF</div>
+            <p class="promo-subtext">On your first order with coupon <strong>STACKLY30</strong></p>
+            <div>
+              <a href="404.html" class="btn btn-primary">
+                Order Now <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+            <img src="assets/images/promotional-banner.webp" alt="Promotional Pizza Banner" class="promo-bg-decor">
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top:2.5rem;">
+          <a href="404.html" class="btn btn-secondary">
+            View Full Menu <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 02 — WHY CHOOSE STACKLY?
+         ========================================================================== -->
+    <section id="services" class="section-padding" style="background: #111111; position:relative; overflow:hidden; scroll-margin-top:80px;">
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom: clamp(2.5rem, 5vw, 4rem);">
+          <div>
+            <div class="section-eyebrow">The STACKLY Promise</div>
+            <h2 class="section-heading" style="margin-bottom:0.5rem;">Why <span class="highlight-primary">Choose Us?</span></h2>
+            <p class="section-desc" style="margin-bottom:0;">Because great pizza makes everything better!</p>
+          </div>
+          <div class="script-callout text-right" style="font-size: clamp(2rem, 3.5vw, 2.75rem); line-height: 1.15;">
+            Good <span class="script-red">Pizza</span><br>
+            Good Mood <span style="display:block; height:3px; width:70px; background:var(--primary); margin-left:auto; margin-top:4px; border-radius:2px;"></span>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-pizza-slice"></i>
+            </div>
+            <h3>Premium Ingredients</h3>
+            <p>Only quality farm vegetables, pure dairy cheese, and hand-selected toppings make the cut.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <h3>Fast Delivery</h3>
+            <p>Enjoy piping-hot pizzas delivered right to your doorstep in thermal insulated pods.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-kitchen-set"></i>
+            </div>
+            <h3>Expert Chefs</h3>
+            <p>Master pizzaiolos handcrafting artisanal 48-hour fermented dough at scorching heat.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-face-smile"></i>
+            </div>
+            <h3>Customer Satisfaction</h3>
+            <p>A warm, delightful experience with every bite, backed by our 100% satisfaction promise.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3>Freshly Baked</h3>
+            <p>Pizzas prepared from scratch and baked at high heat for every single order.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3>Affordable Prices</h3>
+            <p>Uncompromising gourmet restaurant quality at accessible, everyday attractive prices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 03 — OUR SIGNATURE PIZZAS
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Chef's Highlights</div>
+          <h2 class="section-heading">Discover Our <span class="highlight-primary">Signature</span> Creations</h2>
+          <p class="section-desc">Hand-tossed crusts, rich Italian sauces, and generous layers of fresh toppings.</p>
+        </div>
+
+        <div class="signature-pizzas-grid">
+          <!-- 1. Margherita -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/margherita.webp" alt="Classic Margherita" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-veg">Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">Classic Margherita</h3>
+              <p class="sig-card-desc">San Marzano tomatoes, fresh buffalo mozzarella, aromatic basil, and virgin olive oil.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹199</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-1', name:'Classic Margherita', price:199, image:'assets/images/margherita.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Farmhouse Delight -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/farmhouse.webp" alt="Farmhouse Delight" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-veg">Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">Farmhouse Delight</h3>
+              <p class="sig-card-desc">Crunchy green capsicum, red onions, juicy ripe tomatoes, and sautéed mushrooms.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹269</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-4', name:'Farmhouse Delight', price:269, image:'assets/images/farmhouse.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Spicy Paneer Pizza -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/veg-supreme.webp" alt="Spicy Paneer Pizza" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-veg">Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">Spicy Paneer Pizza</h3>
+              <p class="sig-card-desc">Tender spiced cottage cheese chunks, red paprika, onion, and mint herb mayo swirl.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹289</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-sig-paneer', name:'Spicy Paneer Pizza', price:289, image:'assets/images/veg-supreme.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Pepperoni Feast -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/pepperoni.webp" alt="Pepperoni Feast" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-nonveg">Non-Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">Pepperoni Feast</h3>
+              <p class="sig-card-desc">Generously layered artisanal pepperoni, double mozzarella, and spicy tomato reduction.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹299</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-3', name:'Pepperoni Feast', price:299, image:'assets/images/pepperoni.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. BBQ Chicken Pizza -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/bbq-chicken.webp" alt="BBQ Chicken Pizza" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-nonveg">Non-Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">BBQ Chicken Pizza</h3>
+              <p class="sig-card-desc">Slow-smoked barbecue chicken strips, sweet corn kernels, caramelized red onions.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹329</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-5', name:'BBQ Chicken Pizza', price:329, image:'assets/images/bbq-chicken.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Cheese Burst Special -->
+          <div class="sig-pizza-card">
+            <div class="sig-card-img-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Cheese Burst Special" class="sig-card-img" loading="lazy">
+              <span class="sig-diet-badge sig-diet-veg">Veg</span>
+            </div>
+            <div class="sig-card-body">
+              <h3 class="sig-card-title">Cheese Burst Special</h3>
+              <p class="sig-card-desc">Signature double crust stuffed with molten liquid cheese, topped with herbs and mozzarella.</p>
+              <div class="sig-card-footer">
+                <span class="sig-price">₹349</span>
+                <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="StacklyStorage.addToCart({id:'p-6', name:'Cheese Burst Special', price:349, image:'assets/images/cheese-burst.webp'})">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 04 — BUILD YOUR OWN PIZZA (INTERACTIVE)
+         ========================================================================== -->
+    <section class="section-padding" style="background: rgba(10, 18, 14, 0.7);">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Interactive Kitchen</div>
+          <h2 class="section-heading">Create a Pizza That's <span class="highlight-primary">Uniquely Yours</span></h2>
+          <p class="section-desc">Choose your crust, sauce, cheese, and favourite toppings to create your perfect pizza.</p>
+        </div>
+
+        <div class="customizer-box">
+          <form id="pizza-customizer-form" onsubmit="return false;">
+            <div class="customizer-grid">
+              <!-- Left: Options Controls -->
+              <div class="customizer-options-col">
+                <!-- 1. Size -->
+                <div class="custom-step-group">
+                  <div class="custom-step-title">
+                    <i class="fa-solid fa-circle-dot"></i> Choose Your Size
+                  </div>
+                  <div class="custom-pill-selector">
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-size" value="regular">
+                      <span class="custom-pill-btn">Regular (8") • ₹199</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-size" value="medium" checked>
+                      <span class="custom-pill-btn">Medium (10") • ₹299</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-size" value="large">
+                      <span class="custom-pill-btn">Large (12") • ₹389</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- 2. Crust -->
+                <div class="custom-step-group">
+                  <div class="custom-step-title">
+                    <i class="fa-solid fa-bread-slice"></i> Choose Your Crust
+                  </div>
+                  <div class="custom-pill-selector">
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-crust" value="classic">
+                      <span class="custom-pill-btn">Classic</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-crust" value="thin">
+                      <span class="custom-pill-btn">Thin Crust (+₹30)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-crust" value="cheese-burst" checked>
+                      <span class="custom-pill-btn">Cheese Burst (+₹70)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-crust" value="pan">
+                      <span class="custom-pill-btn">Pan Crust (+₹40)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- 3. Sauce -->
+                <div class="custom-step-group">
+                  <div class="custom-step-title">
+                    <i class="fa-solid fa-bottle-droplet"></i> Choose Your Sauce
+                  </div>
+                  <div class="custom-pill-selector">
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-sauce" value="tomato" checked>
+                      <span class="custom-pill-btn">Classic Tomato</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-sauce" value="marinara">
+                      <span class="custom-pill-btn">Spicy Marinara (+₹20)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-sauce" value="creamy-white">
+                      <span class="custom-pill-btn">Creamy White Sauce (+₹30)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- 4. Cheese -->
+                <div class="custom-step-group">
+                  <div class="custom-step-title">
+                    <i class="fa-solid fa-cheese"></i> Choose Your Cheese
+                  </div>
+                  <div class="custom-pill-selector">
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-cheese" value="mozzarella" checked>
+                      <span class="custom-pill-btn">Mozzarella</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-cheese" value="extra-cheese">
+                      <span class="custom-pill-btn">Extra Cheese (+₹50)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="radio" name="pizza-cheese" value="four-blend">
+                      <span class="custom-pill-btn">Cheese Blend (+₹65)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- 5. Toppings (Multi-Select) -->
+                <div class="custom-step-group">
+                  <div class="custom-step-title">
+                    <i class="fa-solid fa-plus-circle"></i> Choose Your Toppings
+                    <span id="selected-toppings-count" style="font-size:0.8rem; font-weight:500; color:var(--primary); margin-left:auto;">3 selected</span>
+                  </div>
+                  <div class="custom-pill-selector">
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="onion">
+                      <span class="custom-pill-btn">Onion (+₹30)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="capsicum" checked>
+                      <span class="custom-pill-btn">Capsicum (+₹30)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="mushroom" checked>
+                      <span class="custom-pill-btn">Mushroom (+₹40)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="olives" checked>
+                      <span class="custom-pill-btn">Olives (+₹45)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="jalapenos">
+                      <span class="custom-pill-btn">Jalapeños (+₹35)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="corn">
+                      <span class="custom-pill-btn">Sweet Corn (+₹30)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="pepperoni">
+                      <span class="custom-pill-btn">Pepperoni (+₹60)</span>
+                    </label>
+                    <label class="custom-pill-label">
+                      <input type="checkbox" name="pizza-toppings" value="paneer">
+                      <span class="custom-pill-btn">Paneer (+₹45)</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Live Preview & Price Counter -->
+              <div class="customizer-preview-box">
+                <div class="custom-preview-img-wrap">
+                  <img src="assets/images/cheese-burst.webp" alt="Custom Pizza Visual" class="custom-preview-base-img">
+                  <div id="visual-topping-layers"></div>
+                </div>
+
+                <div class="custom-price-tag" id="custom-pizza-price">₹439</div>
+                <div class="custom-demo-note">* Demonstration price updated in real-time</div>
+
+                <div class="custom-pizza-specs-box" id="custom-pizza-specs">
+                  <!-- Dynamically populated -->
+                </div>
+
+                <div class="custom-actions-row">
+                  <button type="button" class="btn btn-primary" id="btn-add-custom-pizza" style="flex:1;">
+                    <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                  </button>
+                  <button type="button" class="btn btn-secondary" id="btn-reset-custom-pizza" title="Reset to defaults">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 05 — SPECIAL OFFERS
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Exclusive Deals</div>
+          <h2 class="section-heading">Big Flavours. <span class="highlight-primary">Bigger Offers</span>.</h2>
+          <p class="section-desc">Grab irresistible discounts on combos, signature crusts, and family feasts.</p>
+        </div>
+
+        <div class="special-offers-grid">
+          <!-- Offer 1 -->
+          <div class="special-offer-card">
+            <div class="offer-card-media">
+              <img src="assets/images/margherita.webp" alt="First Order Special" class="offer-card-img" loading="lazy">
+              <span class="offer-ribbon">30% OFF</span>
+            </div>
+            <div class="offer-card-body">
+              <h3 class="offer-title">First Order Special</h3>
+              <p class="offer-desc">Enjoy a massive 30% discount on your first online order. Experience STACKLY magic today.</p>
+              <div class="offer-code-badge">
+                <span>Coupon Code:</span>
+                <span class="offer-code-val">STACKLY30</span>
+              </div>
+              <a href="404.html" class="btn btn-primary" style="width:100%;">View Offer Details →</a>
+            </div>
+          </div>
+
+          <!-- Offer 2 -->
+          <div class="special-offer-card">
+            <div class="offer-card-media">
+              <img src="assets/images/pizza-combo.webp" alt="Family Pizza Combo" class="offer-card-img" loading="lazy">
+              <span class="offer-ribbon">BEST VALUE</span>
+            </div>
+            <div class="offer-card-body">
+              <h3 class="offer-title">Family Pizza Combo</h3>
+              <p class="offer-desc">Two medium gourmet pizzas with stuffed garlic bread, loaded dips, and 4 beverages.</p>
+              <div class="offer-code-badge">
+                <span>Coupon Code:</span>
+                <span class="offer-code-val">FAMILY40</span>
+              </div>
+              <a href="404.html" class="btn btn-primary" style="width:100%;">View Offer Details →</a>
+            </div>
+          </div>
+
+          <!-- Offer 3 -->
+          <div class="special-offer-card">
+            <div class="offer-card-media">
+              <img src="assets/images/bbq-chicken.webp" alt="Weekend Pizza Treat" class="offer-card-img" loading="lazy">
+              <span class="offer-ribbon">WEEKEND ONLY</span>
+            </div>
+            <div class="offer-card-body">
+              <h3 class="offer-title">Weekend Pizza Treat</h3>
+              <p class="offer-desc">Flat 20% off every Saturday and Sunday on all signature pizzas and cheesy sides.</p>
+              <div class="offer-code-badge">
+                <span>Coupon Code:</span>
+                <span class="offer-code-val">WEEKEND50</span>
+              </div>
+              <a href="404.html" class="btn btn-primary" style="width:100%;">View Offer Details →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 06 — OUR INGREDIENTS
+         ========================================================================== -->
+    <section class="section-padding" style="background: rgba(14, 22, 17, 0.4); overflow:hidden;">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Pure Quality</div>
+          <h2 class="section-heading">Fresh Ingredients. <span class="highlight-primary">Extraordinary</span> Taste.</h2>
+          <p class="section-desc">We obsess over every ingredient that touches your dough. Handpicked, natural, and preservative-free.</p>
+        </div>
+
+        <div class="ingredients-visual-wrap">
+          <img src="assets/images/fresh-ingredients.webp" alt="Fresh Pizza Ingredients" class="ingredients-center-pizza" loading="lazy">
+
+          <!-- Orbit Labels -->
+          <div class="ingredient-orbit-card orbit-pos-1">
+            <i class="fa-solid fa-cheese"></i> Fresh Buffalo Mozzarella
+          </div>
+          <div class="ingredient-orbit-card orbit-pos-2">
+            <i class="fa-solid fa-apple-whole"></i> Handpicked Vine Tomatoes
+          </div>
+          <div class="ingredient-orbit-card orbit-pos-3">
+            <i class="fa-solid fa-seedling"></i> Farm-Fresh Italian Basil
+          </div>
+          <div class="ingredient-orbit-card orbit-pos-4">
+            <i class="fa-solid fa-circle"></i> Spanish Kalamata Olives
+          </div>
+          <div class="ingredient-orbit-card orbit-pos-5">
+            <i class="fa-solid fa-cubes-stacked"></i> 48-Hour Cold Fermented Dough
+          </div>
+          <div class="ingredient-orbit-card orbit-pos-6">
+            <i class="fa-solid fa-jar"></i> Artisan Herb-Infused Sauces
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 07 — HOW IT WORKS
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Seamless Journey</div>
+          <h2 class="section-heading">Your Favourite Pizza in <span class="highlight-primary">Four Steps</span></h2>
+          <p class="section-desc">From our oven to your hands in record time. Delicious simplicity at its finest.</p>
+        </div>
+
+        <div class="process-steps-timeline">
+          <!-- Step 1 -->
+          <div class="process-step-node">
+            <div class="process-step-num">01</div>
+            <div class="process-step-icon"><i class="fa-solid fa-compass"></i></div>
+            <h3 class="process-step-title">Explore</h3>
+            <p class="process-step-desc">Discover hand-crafted pizzas, side combos, and promotional offers on our menu.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step-node">
+            <div class="process-step-num">02</div>
+            <div class="process-step-icon"><i class="fa-solid fa-sliders"></i></div>
+            <h3 class="process-step-title">Customize</h3>
+            <p class="process-step-desc">Pick your size, crust, artisan sauces, and pile on your favorite toppings.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step-node">
+            <div class="process-step-num">03</div>
+            <div class="process-step-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+            <h3 class="process-step-title">Order</h3>
+            <p class="process-step-desc">Review your items in the cart and submit your demonstration order instantly.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step-node">
+            <div class="process-step-num">04</div>
+            <div class="process-step-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+            <h3 class="process-step-title">Enjoy</h3>
+            <p class="process-step-desc">Track progress in real-time, receive your hot box, and enjoy every single slice!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 08 — CUSTOMER LOVE (TESTIMONIALS)
+         ========================================================================== -->
+    <section class="section-padding" style="background: rgba(14, 22, 17, 0.5);">
+      <div class="container">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">Loved by Foodies</div>
+          <h2 class="section-heading">Made with Love. <span class="highlight-primary">Loved</span> by Everyone.</h2>
+          <p class="section-desc">Here is what our pizza enthusiasts have to say about the STACKLY taste sensation.</p>
+        </div>
+
+        <div class="testimonial-carousel-container">
+          <div class="testimonial-carousel-track">
+            <!-- Review 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">"The Cheese Burst Pepperoni is out of this world! Melted cheese oozing with every single bite. Easily the best pizza experience in town."</p>
+              <div class="testimonial-author-box">
+                <img src="assets/images/avatar-1.webp" alt="Rahul Sharma" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <h4 class="testimonial-author-name">Rahul Sharma</h4>
+                  <span class="testimonial-ordered-badge">Ordered: Cheese Burst Pepperoni</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">"STACKLY's crust has the perfect balance of crispy exterior and soft airy crumb. Fresh basil on the Margherita tasted straight from Italy!"</p>
+              <div class="testimonial-author-box">
+                <img src="assets/images/avatar-2.webp" alt="Priya Patel" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <h4 class="testimonial-author-name">Priya Patel</h4>
+                  <span class="testimonial-ordered-badge">Ordered: Classic Margherita</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">"We ordered the Family Feast combo for our weekend get-together. The delivery arrived piping hot in 25 minutes! Everyone was super impressed."</p>
+              <div class="testimonial-author-box">
+                <img src="assets/images/avatar-3.webp" alt="Arun Kumar" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <h4 class="testimonial-author-name">Arun Kumar</h4>
+                  <span class="testimonial-ordered-badge">Ordered: Family Feast Combo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="testimonial-card">
+              <div class="testimonial-rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="testimonial-text">"The Build Your Own Pizza tool is so fun and easy! Got exact crust and custom toppings I love, and the brownie dessert was pure heaven."</p>
+              <div class="testimonial-author-box">
+                <img src="assets/images/avatar-4.webp" alt="Meena Nair" class="testimonial-avatar" loading="lazy">
+                <div>
+                  <h4 class="testimonial-author-name">Meena Nair</h4>
+                  <span class="testimonial-ordered-badge">Ordered: Custom Gourmet Pizza</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-nav-btns">
+            <button class="btn-icon carousel-btn-prev" aria-label="Previous Testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="btn-icon carousel-btn-next" aria-label="Next Testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 09 — FINAL CTA
+         ========================================================================== -->
+    <section class="final-cta-section section-padding">
+      <div class="final-cta-overlay"></div>
+      <div class="container" style="position:relative; z-index:2;">
+        <div class="section-eyebrow" style="justify-content:center;">Ready for a Slice?</div>
+        <h2 class="section-heading" style="margin-bottom:1.25rem;">
+          Good Times Start with <span class="highlight-primary">Great Pizza</span>!
+        </h2>
+        <p class="section-desc" style="margin-left:auto; margin-right:auto; margin-bottom:2.25rem;">
+          Gather your favourite people, choose your favourite flavours, and make every moment delicious with STACKLY.
+        </p>
+        <div class="flex-center" style="gap:1.25rem; flex-wrap:wrap;">
+          <a href="404.html" class="btn btn-primary">
+            <i class="fa-solid fa-utensils"></i> Explore Our Menu
+          </a>
+          <a href="404.html" class="btn btn-secondary">
+            <i class="fa-solid fa-user-plus"></i> Join STACKLY
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       WATCH OUR STORY DEMO MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="story-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="story-modal-close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div style="padding:2.5rem; text-align:center;">
+        <div style="width:70px; height:70px; border-radius:50%; background:rgba(229,9,20,0.15); color:var(--primary); font-size:2rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem;">
+          <i class="fa-solid fa-film"></i>
+        </div>
+        <h3 style="font-size:1.6rem; font-weight:800; margin-bottom:0.75rem;">The STACKLY Story</h3>
+        <p style="color:var(--white-75); font-size:0.95rem; line-height:1.7; margin-bottom:1.5rem;">
+          From a humble brick-oven dream to your neighborhood's favourite pizza obsession. Watch how our master pizzaiolos cold-ferment our dough for 48 hours, roast vine-ripened tomatoes, and bake perfection at 450°C.
+        </p>
+        <div style="position:relative; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-glass); margin-bottom:1.75rem;">
+          <img src="assets/images/pizza-chef.webp" alt="Master chef preparing pizza" style="width:100%; height:260px; object-fit:cover;">
+          <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;">
+            <div style="width:60px; height:60px; border-radius:50%; background:var(--primary); color:#FFFFFF; display:flex; align-items:center; justify-content:center; font-size:1.5rem; box-shadow:0 0 25px rgba(229,9,20,0.6);">
+              <i class="fa-solid fa-play"></i>
+            </div>
+          </div>
+        </div>
+        <a href="404.html" class="btn btn-primary" style="padding:0.65rem 1.75rem;">Read Full Brand Story →</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- ==========================================================================
+       FOOTER (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="STACKLY Home">
+            <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="footer-logo">
+          </a>
+          <p class="footer-desc">
+            Freshly prepared pizzas, delicious flavours, and memorable moments. STACKLY brings your favourite pizza experience closer to you.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="About.html">About</a></li>
+            <li class="footer-link-item"><a href="menuoff.html">Menuoff</a></li>
+            <li class="footer-link-item"><a href="services.html">Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+            <li class="footer-link-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Menu -->
+        <div>
+          <h4 class="footer-col-title">Our Menu</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Classic Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Premium Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Non-Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Sides &amp; Beverages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Support -->
+        <div>
+          <h4 class="footer-col-title">Customer Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Help Center</a></li>
+            <li class="footer-link-item"><a href="404.html">Delivery Information</a></li>
+            <li class="footer-link-item"><a href="404.html">Refund Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <div>Copyright &copy; 2026 STACKLY. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/pizza-customization.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

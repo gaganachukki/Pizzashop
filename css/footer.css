@@ -1,0 +1,196 @@
+/* ==========================================================================
+   STACKLY PIZZA SHOP - FOOTER STYLES
+   Red + Black Palette:
+   - Footer Background: #0A0A0A
+   - Primary Red Highlights: #E50914
+   ========================================================================== */
+
+.site-footer {
+  background: var(--bg-footer);
+  border-top: 1px solid var(--border-glass);
+  padding-top: clamp(4rem, 6vw, 5.5rem);
+  padding-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 80%);
+  opacity: 0.8;
+}
+
+.footer-grid,
+.footer-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  width: 100%;
+}
+
+/* Col 1: Brand */
+.footer-brand,
+.footer-col.brand-col {
+  max-width: 360px;
+}
+
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.footer-logo-link:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.footer-logo,
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  color: var(--white-75);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.footer-social-links,
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-social-icon,
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #1A1A1A;
+  border: 1px solid var(--border-glass);
+  color: var(--secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-icon:hover,
+.social-icon-btn:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(229, 9, 20, 0.5);
+}
+
+/* Col 2, 3, 4 Titles & Lists */
+.footer-col-title,
+.footer-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-col-title::after,
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 24px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: var(--radius-pill);
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-list li,
+.footer-link-item {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-link-item a,
+.footer-links-list a {
+  font-size: 0.92rem;
+  color: var(--white-75);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.footer-link-item a:hover,
+.footer-links-list a:hover {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+
+/* Footer Bottom Bar */
+.footer-bottom-bar {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--white-60);
+  width: 100%;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1.25rem;
+}
+
+.footer-bottom-links,
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-bottom-links a,
+.footer-legal-links a {
+  color: var(--white-60);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.footer-bottom-links a:hover,
+.footer-legal-links a:hover {
+  color: var(--primary);
+}

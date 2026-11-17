@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — STACKLY | Customer Support, Orders &amp; Partnerships</title>
+  <meta name="description" content="Reach out to STACKLY for order assistance, customer support, feedback, catering, or franchise inquiries.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins exclusively -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Home">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="brand-logo-img">
+        <span class="brand-fallback-text">STACKLY</span>
+      </a>
+
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="menuoff.html" class="nav-link">Menuoff</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon" data-action="open-search" aria-label="Search menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="nav-btn-icon" data-action="open-cart" aria-label="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <a href="Login.html" class="btn btn-primary nav-login-btn">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" aria-label="STACKLY Home"><img src="assets/images/Brand-logo.webp" alt="STACKLY" style="height:36px; width:auto;"></a>
+      <button class="modal-close mobile-drawer-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+        <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="About.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="menuoff.html" class="mobile-nav-link"><span>Menuoff</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link active"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="mobile-drawer-actions">
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Login to Account</a>
+      <a href="Signup.html" class="btn btn-secondary" style="width:100%;">Create New Account</a>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal">
+    <div class="search-container">
+      <button class="modal-close search-modal-close" aria-label="Close Search"><i class="fa-solid fa-xmark"></i></button>
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" placeholder="Search menu...">
+        <button class="search-submit-btn" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Your Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i> <span>Your Pizza Bag</span></div>
+      <button class="modal-close cart-drawer-close" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row"><span>Subtotal</span><span class="cart-summary-subtotal-val">₹0</span></div>
+      <div class="cart-summary-row"><span>Taxes &amp; Delivery</span><span style="color:var(--primary); font-weight:600;">FREE</span></div>
+      <div class="cart-summary-row cart-summary-total"><span>Total</span><span class="cart-summary-total-val" style="color:var(--primary);">₹0</span></div>
+      <button class="btn btn-primary cart-checkout-btn">Place Order Now <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO — WE'D LOVE TO HEAR FROM YOU!
+       ========================================================================== -->
+  <main>
+    <section class="contact-hero inner-page-hero">
+      <div class="contact-hero-overlay"></div>
+      <div class="container hero-content-inner" style="position:relative; z-index:10;">
+        <div class="badge-tag"><i class="fa-solid fa-headset"></i> 24/7 Customer Care</div>
+        <h1 class="hero-heading">We'd Love to <span class="highlight-primary">Hear From You</span>!</h1>
+        <p class="section-desc" style="margin-left:auto; margin-right:auto;">
+          Questions about our pizzas, orders, or offers? Our dedicated support team is always here to assist you.
+        </p>
+      </div>
+    </section>
+
+    <div class="container section-padding">
+
+      <!-- ==========================================================================
+           01 — CONTACT OVERVIEW (3 MAIN CHANNELS)
+           ========================================================================== -->
+      <div class="contact-channels-grid">
+        <!-- Channel 1: Customer Support -->
+        <div class="contact-channel-card">
+          <div class="contact-channel-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">01 — Customer Support</h3>
+          <p style="font-size:0.9rem; color:var(--white-75); line-height:1.6; margin-bottom:1rem;">
+            Direct assistance with dietary requests, delivery updates, or menu inquiries.
+          </p>
+          <a href="404.html" style="color:var(--primary); font-weight:600; font-size:0.95rem;">1800-123-456 (Toll Free)</a>
+        </div>
+
+        <!-- Channel 2: Order Assistance -->
+        <div class="contact-channel-card">
+          <div class="contact-channel-icon"><i class="fa-solid fa-receipt"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">02 — Order Assistance</h3>
+          <p style="font-size:0.9rem; color:var(--white-75); line-height:1.6; margin-bottom:1rem;">
+            Need help tracking your order or modifying toppings? Check live tracking.
+          </p>
+          <a href="404.html" style="color:var(--primary); font-weight:600; font-size:0.95rem;">Live Order Tracking →</a>
+        </div>
+
+        <!-- Channel 3: Franchise & Partnership -->
+        <div class="contact-channel-card">
+          <div class="contact-channel-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3 style="font-size:1.25rem; font-weight:700; margin-bottom:0.5rem;">03 — Franchise Inquiry</h3>
+          <p style="font-size:0.9rem; color:var(--white-75); line-height:1.6; margin-bottom:1rem;">
+            Partner with STACKLY and bring artisanal pizzas to your neighborhood.
+          </p>
+          <a href="404.html" style="color:var(--primary); font-weight:600; font-size:0.95rem;">franchise@stackly.com</a>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           05 — CONTACT FORM & 06 — CONTACT INFORMATION
+           ========================================================================== -->
+      <div class="contact-main-grid">
+        <!-- Left: Validated Contact Form -->
+        <div class="contact-form-card">
+          <div class="section-eyebrow">05 — Send a Message</div>
+          <h2 style="font-size:1.85rem; font-weight:800; margin-bottom:0.5rem;">Get in <span class="highlight-primary">Touch</span></h2>
+          <p style="font-size:0.92rem; color:var(--white-75); margin-bottom:2rem;">
+            Fill out the form below. Our demonstration care desk will simulate an immediate confirmation.
+          </p>
+
+          <form id="contact-form" novalidate>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name *</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Rahul Sharma" required>
+                <div class="form-error-msg"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" id="contact-email" class="form-control" placeholder="e.g. rahul@example.com" required>
+                <div class="form-error-msg"></div>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">Phone Number *</label>
+                <input type="tel" id="contact-phone" class="form-control" placeholder="e.g. +91 9876543210" required>
+                <div class="form-error-msg"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-type" class="form-label">Inquiry Type *</label>
+                <select id="contact-type" class="form-control form-select" required>
+                  <option value="">Select Category</option>
+                  <option value="Customer Support">Customer Support</option>
+                  <option value="Order Assistance">Order Assistance</option>
+                  <option value="Franchise & Partnership">Franchise &amp; Partnership</option>
+                  <option value="Catering & Party">Catering &amp; Party Orders</option>
+                  <option value="General Feedback">General Feedback</option>
+                </select>
+                <div class="form-error-msg"></div>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 2fr; gap:1.25rem;">
+              <div class="form-group">
+                <label for="contact-order-id" class="form-label">Order ID (Optional)</label>
+                <input type="text" id="contact-order-id" class="form-control" placeholder="e.g. ORD-1001">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject *</label>
+                <input type="text" id="contact-subject" class="form-control" placeholder="Brief subject of your message" required>
+                <div class="form-error-msg"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message * (Min 10 characters)</label>
+              <textarea id="contact-message" class="form-control" rows="5" placeholder="Tell us how we can help make your pizza experience better..." required></textarea>
+              <div class="form-error-msg"></div>
+            </div>
+
+            <button type="submit" id="btn-submit-contact" class="btn btn-primary" style="width:100%;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <div id="contact-status-box"></div>
+          </form>
+        </div>
+
+        <!-- Right: Contact Information (06) -->
+        <div class="contact-info-card">
+          <div class="section-eyebrow">06 — Headquarters</div>
+          <h3 style="font-size:1.45rem; font-weight:800; margin-bottom:1.5rem;">Contact Information</h3>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem; font-weight:700; margin-bottom:0.2rem;">Kitchen &amp; Head Office</h5>
+              <p style="font-size:0.88rem; color:var(--white-75); line-height:1.5;">
+                STACKLY Flagship Pizzeria<br>
+                42 Gourmet Boulevard, Indiranagar<br>
+                Bengaluru, Karnataka 560038
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem; font-weight:700; margin-bottom:0.2rem;">Direct Telephone</h5>
+              <p style="font-size:0.88rem; color:var(--white-75);">+91 (080) 4123-STACK (7822)</p>
+              <p style="font-size:0.8rem; color:var(--white-60);">Mon–Sun: 11:00 AM – Midnight</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem; font-weight:700; margin-bottom:0.2rem;">Email Inquiries</h5>
+              <p style="font-size:0.88rem; color:var(--white-75);">support@stackly.com</p>
+              <p style="font-size:0.88rem; color:var(--white-75);">orders@stackly.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h5 style="font-size:0.95rem; font-weight:700; margin-bottom:0.2rem;">Oven Operational Hours</h5>
+              <p style="font-size:0.88rem; color:var(--white-75);">Everyday: 11:00 AM – 1:00 AM</p>
+              <span class="badge-tag" style="margin-top:0.4rem; font-size:0.75rem;">Hot Deliveries Ongoing</span>
+            </div>
+          </div>
+
+          <!-- Note regarding demonstration -->
+          <div style="background:var(--white-05); padding:1rem; border-radius:var(--radius-sm); border:1px solid var(--border-glass); margin-top:1.5rem; font-size:0.8rem; color:var(--white-60);">
+            <i class="fa-solid fa-info-circle" style="color:var(--primary);"></i> Note: STACKLY is a frontend demonstration web application. All contact details are sample placeholders.
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           07 — FAQ (INTERACTIVE ACCORDION)
+           ========================================================================== -->
+      <div class="section-header-centered" style="margin-bottom:2rem;">
+        <div class="section-eyebrow">07 — Got Questions?</div>
+        <h2 class="section-heading">Frequently Asked <span class="highlight-primary">Questions</span></h2>
+        <p class="section-desc">Quick answers about our dough, delivery times, payment methods, and gluten-free options.</p>
+      </div>
+
+      <div class="faq-accordion-wrap">
+        <div class="faq-item active">
+          <div class="faq-header">
+            <h4 class="faq-title">How does STACKLY make its pizza dough so light and digestible?</h4>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            We use a proprietary 48-hour cold fermentation process. By allowing our natural levain sourdough to mature slowly in chilled proofing cabinets, the starches and complex proteins break down naturally. This yields an airy, blistered crust that never leaves you feeling heavy.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4 class="faq-title">What is the average delivery time?</h4>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            Our orders are dispatched in custom thermal-insulated delivery pods within 10 minutes of coming out of our 450°C wood stone oven. Average delivery time is 25 to 35 minutes depending on your distance from our nearest kitchen hub.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4 class="faq-title">Do you offer 100% vegetarian options?</h4>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            Yes! Over half of our menu is 100% pure vegetarian, baked using dedicated utensils and separate preparation surfaces to prevent any cross-contamination.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4 class="faq-title">Can I customize my pizza crust, sauces, and toppings?</h4>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            Absolutely! Use our interactive "Build Your Own Pizza" feature available directly on our Homepage and Menu pages to choose your crust, cheese blend, artisan sauces, and unlimited toppings.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <h4 class="faq-title">How does this frontend demonstration work?</h4>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            This entire STACKLY website runs entirely in your browser using modern HTML5, CSS3, vanilla JavaScript, GSAP, and LocalStorage. You can place demonstration orders, customize pizzas, add coupons, and manage orders across the Admin and Client dashboards in real time without any backend server.
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           08 — FINAL CTA
+           ========================================================================== -->
+      <div class="final-cta-section section-padding" style="border-radius:var(--radius-lg); overflow:hidden;">
+        <div class="final-cta-overlay"></div>
+        <div style="position:relative; z-index:2; text-align:center;">
+          <div class="section-eyebrow" style="justify-content:center;">08 — Next Step</div>
+          <h2 class="section-heading" style="margin-bottom:1.25rem;">
+            Let's Make Your Next <span class="highlight-primary">Pizza Experience</span> Better!
+          </h2>
+          <p class="section-desc" style="margin-left:auto; margin-right:auto; margin-bottom:2rem;">
+            Hungry right now? Jump straight into our catalog and choose your favourite handcrafted pizza.
+          </p>
+          <a href="404.html" class="btn btn-primary">
+            Order Your Pizza Now <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+    <!-- ==========================================================================
+       FOOTER (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="STACKLY Home">
+            <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="footer-logo">
+          </a>
+          <p class="footer-desc">
+            Freshly prepared pizzas, delicious flavours, and memorable moments. STACKLY brings your favourite pizza experience closer to you.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="About.html">About</a></li>
+            <li class="footer-link-item"><a href="menuoff.html">Menuoff</a></li>
+            <li class="footer-link-item"><a href="services.html">Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+            <li class="footer-link-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Menu -->
+        <div>
+          <h4 class="footer-col-title">Our Menu</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Classic Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Premium Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Non-Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Sides &amp; Beverages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Support -->
+        <div>
+          <h4 class="footer-col-title">Customer Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Help Center</a></li>
+            <li class="footer-link-item"><a href="404.html">Delivery Information</a></li>
+            <li class="footer-link-item"><a href="404.html">Refund Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <div>Copyright &copy; 2026 STACKLY. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

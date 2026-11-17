@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu &amp; Offers — STACKLY | Hand-Tossed Pizzas, Combos &amp; Gourmet Deals</title>
+  <meta name="description" content="Explore the full STACKLY menu and exclusive pizza deals. Handcrafted pizzas, chef combos, BOGO specials, and limited-time savings under one roof.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins & Caveat Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/menuoff.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVBAR (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <!-- Left: Logo -->
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Home">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="brand-logo-img">
+        <span class="brand-fallback-text">STACKLY</span>
+      </a>
+
+      <!-- Center: Navigation -->
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="menuoff.html" class="nav-link active">Menuoff</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Search, Cart, Login -->
+      <div class="nav-actions">
+        <button class="nav-btn-icon" data-action="open-search" aria-label="Search menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="nav-btn-icon" data-action="open-cart" aria-label="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <a href="Login.html" class="btn btn-primary nav-login-btn">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+
+        <!-- Mobile Hamburger -->
+        <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" aria-label="STACKLY Home"><img src="assets/images/Brand-logo.webp" alt="STACKLY" style="height:36px; width:auto;"></a>
+      <button class="modal-close mobile-drawer-close" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="About.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="menuoff.html" class="mobile-nav-link active"><span>Menuoff</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="mobile-drawer-actions">
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Login to Account</a>
+      <a href="Signup.html" class="btn btn-secondary" style="width:100%;">Create New Account</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO — UNIFIED MENU & OFFERS
+         ========================================================================== -->
+    <section class="menu-hero inner-page-hero">
+      <div class="menu-hero-overlay"></div>
+      <div class="container hero-content-inner" style="position:relative; z-index:10;">
+        <div class="hero-script-eyebrow" style="margin-bottom:0.75rem;">~ Handcrafted Taste &amp; Sizzling Savings ~</div>
+        <div class="badge-tag" style="margin-bottom:1rem;">
+          <i class="fa-solid fa-fire"></i> Fresh Pizzas &amp; Exclusive Deals
+        </div>
+        <h1 class="hero-heading">Explore Our Menu &amp; <span class="highlight-primary">Hottest Offers</span></h1>
+        <p class="section-desc" style="max-width:760px; margin-left:auto; margin-right:auto;">
+          From wood-fired artisan pizzas and melted cheese crusts to irresistible BOGO feasts and limited-time savings — everything you crave in one single place.
+        </p>
+
+        <!-- Quick Jump Navigation Tabs -->
+        <nav class="menuoff-tabs-nav" aria-label="Menu &amp; Deals Section Shortcuts">
+          <a href="404.html" class="menuoff-tab-pill active">
+            <i class="fa-solid fa-pizza-slice"></i> Pizza &amp; Sides Menu
+          </a>
+          <a href="404.html" class="menuoff-tab-pill">
+            <i class="fa-solid fa-tags"></i> All Offers &amp; Deals
+          </a>
+          <a href="404.html" class="menuoff-tab-pill">
+            <i class="fa-solid fa-box-open"></i> Value Combos
+          </a>
+          <a href="404.html" class="menuoff-tab-pill">
+            <i class="fa-solid fa-gift"></i> BOGO Offers
+          </a>
+          <a href="404.html" class="menuoff-tab-pill">
+            <i class="fa-solid fa-bolt"></i> Flash Deals (Live)
+          </a>
+          <a href="404.html" class="menuoff-tab-pill">
+            <i class="fa-solid fa-crown"></i> VIP Loyalty Perks
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- In-page anchor for Menu -->
+    <div id="menu-section"></div>
+
+    <!-- ==========================================================================
+         MENU CATALOG & INTERACTIVE FILTER SECTION
+         ========================================================================== -->
+<!-- ==========================================================================
+         MENU CATALOG & INTERACTIVE FILTER SECTION
+         ========================================================================== -->
+    <section class="section-padding-sm">
+      <div class="container">
+        <!-- Filter Bar -->
+        <div class="menu-filter-bar">
+          <div class="menu-filter-controls-row">
+            <!-- Search -->
+            <div class="menu-search-box">
+              <i class="fa-solid fa-magnifying-glass menu-search-icon"></i>
+              <input type="text" id="menu-search-input" class="menu-search-input" placeholder="Search by name, ingredients...">
+            </div>
+
+            <!-- Veg / Non-Veg Toggles -->
+            <div class="menu-diet-toggles">
+              <button class="diet-toggle-btn active" data-diet="all">
+                <i class="fa-solid fa-border-all"></i> All
+              </button>
+              <button class="diet-toggle-btn" data-diet="veg">
+                <i class="fa-solid fa-leaf" style="color:var(--primary);"></i> Veg
+              </button>
+              <button class="diet-toggle-btn" data-diet="non-veg">
+                <i class="fa-solid fa-drumstick-bite" style="color:#ff5252;"></i> Non-Veg
+              </button>
+            </div>
+
+            <!-- Sorting Select -->
+            <div>
+              <select id="menu-sort-select" class="form-control form-select menu-sort-select" aria-label="Sort Menu By">
+                <option value="default">Sort: Recommended</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Category Pills Row (8 Categories) -->
+          <div class="menu-category-pills-row" role="tablist">
+            <button class="cat-pill-btn active" data-cat="all">All Items</button>
+            <button class="cat-pill-btn" data-cat="Classic">01 — Classic Pizzas</button>
+            <button class="cat-pill-btn" data-cat="Veg">02 — Veg Pizzas</button>
+            <button class="cat-pill-btn" data-cat="Non-Veg">03 — Non-Veg Pizzas</button>
+            <button class="cat-pill-btn" data-cat="Premium">04 — Premium Pizzas</button>
+            <button class="cat-pill-btn" data-cat="Cheese Burst">05 — Cheese Burst</button>
+            <button class="cat-pill-btn" data-cat="Combos">06 — Combos</button>
+            <button class="cat-pill-btn" data-cat="Sides">07 — Sides</button>
+            <button class="cat-pill-btn" data-cat="Beverages">08 — Beverages &amp; Desserts</button>
+          </div>
+        </div>
+
+        <!-- Indicator of Items Count -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; color:var(--white-75); font-size:0.9rem;">
+          <span id="menu-items-count">Loading delicious menu...</span>
+          <span style="font-size:0.82rem; color:var(--white-60);"><i class="fa-solid fa-info-circle"></i> Click any pizza for quick specifications</span>
+        </div>
+
+        <!-- Grid of Menu Cards -->
+        <div id="menu-catalog-grid" class="menu-catalog-grid">
+          <!-- Populated by js/menu.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROMOTIONAL DIVIDER BANNER (Between Menu & Offers)
+         ========================================================================== -->
+    <div class="container">
+      <div class="menuoff-divider-banner">
+        <div style="max-width:640px; position:relative; z-index:2;">
+          <div class="hero-script-eyebrow" style="font-size:1.6rem; color:var(--primary); margin-bottom:0.35rem;">~ Big Flavours, Bigger Savings ~</div>
+          <h2 style="font-size:clamp(1.5rem, 3vw, 2.25rem); font-weight:800; color:var(--white); margin-bottom:0.75rem;">
+            Craving Extra Cheese &amp; Extra Discounts?
+          </h2>
+          <p style="color:var(--white-75); font-size:0.95rem; margin-bottom:0;">
+            Pair your favourite wood-fired pizzas with our curated chef combos, BOGO coupons, and flash deals below. Apply coupon codes with a single click!
+          </p>
+        </div>
+        <div style="position:relative; z-index:2;">
+          <a href="404.html" class="btn btn-primary" style="padding:0.85rem 2rem; font-size:1rem;">
+            Explore Deals Below <i class="fa-solid fa-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- In-page anchor for Offers -->
+    <div id="offers-section" style="scroll-margin-top:100px;"></div>
+
+    <!-- ==========================================================================
+         OFFERS & SPECIAL DEALS SECTION (From Offers.html)
+         ========================================================================== -->
+<!-- Filter Category Pills -->
+    <div class="container" style="padding-top: 3rem;">
+      <div class="offers-filter-bar">
+        <button class="offer-cat-pill active" data-filter="all">All Offers</button>
+        <button class="offer-cat-pill" data-filter="first-order">First Order</button>
+        <button class="offer-cat-pill" data-filter="combos">Combos</button>
+        <button class="offer-cat-pill" data-filter="family">Family Feast</button>
+        <button class="offer-cat-pill" data-filter="weekend">Weekend Specials</button>
+        <button class="offer-cat-pill" data-filter="bogo">BOGO Deals</button>
+        <button class="offer-cat-pill" data-filter="limited">Limited-Time</button>
+        <button class="offer-cat-pill" data-filter="membership">VIP Loyalty</button>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 01 — FIRST ORDER OFFERS
+           ========================================================================== -->
+      <div class="offers-section-block" id="first-order-section" data-cat="first-order" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">01 — Welcome Treat</div>
+        <h2 class="section-heading">First Order <span class="highlight-primary">Offers</span></h2>
+        <div class="offers-grid-2">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/margherita.webp" alt="Welcome 30% Off" class="promo-card-thumb">
+              <span class="promo-discount-badge">30% OFF</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Welcome Foodie 30% Off</h3>
+              <p class="promo-card-desc">Get a flat 30% discount on your very first order across our entire menu. Minimum order ₹199.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">STACKLY30</span>
+                <button class="btn-copy-code" data-code="STACKLY30"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Welcome Foodie 30% Off', 'STACKLY30')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/garlic-bread.webp" alt="Free Garlic Bread" class="promo-card-thumb">
+              <span class="promo-discount-badge">FREE SIDE</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Free Cheesy Garlic Bread</h3>
+              <p class="promo-card-desc">Complimentary stuffed cheese garlic bread with any large signature pizza on first signup.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">FREEBREAD</span>
+                <button class="btn-copy-code" data-code="FREEBREAD"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Free Cheesy Garlic Bread', 'FREEBREAD')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 02 — PIZZA COMBOS
+           ========================================================================== -->
+      <div class="offers-section-block" id="combos-section" data-cat="combos" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">02 — Smart Combos</div>
+        <h2 class="section-heading">Delicious Pizza <span class="highlight-primary">Combos</span></h2>
+        <div class="offers-grid-3">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/pizza-combo.webp" alt="Solo Craver" class="promo-card-thumb">
+              <span class="promo-discount-badge">SAVE ₹80</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Solo Craver Combo</h3>
+              <p class="promo-card-desc">1 Regular Pizza + 1 Cheesy Garlic Bread + 1 Chilled Beverage.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">SOLOPACK</span>
+                <button class="btn-copy-code" data-code="SOLOPACK"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Solo Craver Combo', 'SOLOPACK')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Duo Indulgence" class="promo-card-thumb">
+              <span class="promo-discount-badge">SAVE ₹150</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Duo Couple Pack</h3>
+              <p class="promo-card-desc">2 Medium Pizzas + Loaded Fries + 2 Cold Beverages.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">DUOLOVE</span>
+                <button class="btn-copy-code" data-code="DUOLOVE"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Duo Couple Pack', 'DUOLOVE')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/chocolate-brownie.webp" alt="Sweet Tooth Addon" class="promo-card-thumb">
+              <span class="promo-discount-badge">₹49 DESSERT</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Sweet Tooth Addon</h3>
+              <p class="promo-card-desc">Add a warm fudge chocolate brownie for just ₹49 with any medium pizza.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">SWEET49</span>
+                <button class="btn-copy-code" data-code="SWEET49"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Sweet Tooth Addon', 'SWEET49')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 03 — FAMILY FEAST DEALS
+           ========================================================================== -->
+      <div class="offers-section-block" id="family-feasts" data-cat="family" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">03 — Big Gatherings</div>
+        <h2 class="section-heading">Family Feast <span class="highlight-primary">Deals</span></h2>
+        <div class="offers-grid-2">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/family-dining.webp" alt="Mega Family Feast" class="promo-card-thumb">
+              <span class="promo-discount-badge">FLAT ₹200 OFF</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Grand Family Feast</h3>
+              <p class="promo-card-desc">2 Large Gourmet Pizzas, Stuffed Garlic Bread, Loaded Wedges, 4 Drinks, and 2 Brownies.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">FAMILY40</span>
+                <button class="btn-copy-code" data-code="FAMILY40"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Grand Family Feast', 'FAMILY40')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/farmhouse.webp" alt="Veggie Gathering" class="promo-card-thumb">
+              <span class="promo-discount-badge">25% OFF</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">All-Veg Mega Gathering</h3>
+              <p class="promo-card-desc">3 Medium Farmhouse &amp; Veg Supreme pizzas with double cheese garlic bread.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">VEGFAMILY</span>
+                <button class="btn-copy-code" data-code="VEGFAMILY"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('All-Veg Mega Gathering', 'VEGFAMILY')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 04 — WEEKEND SPECIALS
+           ========================================================================== -->
+      <div class="offers-section-block" id="weekend-specials" data-cat="weekend" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">04 — Sat &amp; Sun Chill</div>
+        <h2 class="section-heading">Weekend <span class="highlight-primary">Specials</span></h2>
+        <div class="offers-grid-3">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/pepperoni.webp" alt="Weekend Pepperoni" class="promo-card-thumb">
+              <span class="promo-discount-badge">20% OFF</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Meat Lovers Weekend</h3>
+              <p class="promo-card-desc">20% off on all Pepperoni Feasts and BBQ Chicken Pizzas every weekend.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">WEEKEND50</span>
+                <button class="btn-copy-code" data-code="WEEKEND50"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Meat Lovers Weekend', 'WEEKEND50')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Sunday Cheese Rush" class="promo-card-thumb">
+              <span class="promo-discount-badge">FREE CRUST</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Sunday Cheese Rush</h3>
+              <p class="promo-card-desc">Upgrade any crust to molten Cheese Burst for absolutely free on Sundays.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">CHEESERUSH</span>
+                <button class="btn-copy-code" data-code="CHEESERUSH"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Sunday Cheese Rush', 'CHEESERUSH')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/french-fries.webp" alt="Matchday Munchies" class="promo-card-thumb">
+              <span class="promo-discount-badge">BUY 1 GET 1 SIDES</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Matchday Munchies</h3>
+              <p class="promo-card-desc">Buy any gourmet side (fries or wings) and get another side 50% off.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">MATCHDAY</span>
+                <button class="btn-copy-code" data-code="MATCHDAY"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Matchday Munchies', 'MATCHDAY')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 05 — BUY ONE GET ONE (BOGO)
+           ========================================================================== -->
+      <div class="offers-section-block" id="bogo-section" data-cat="bogo" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">05 — Double Happiness</div>
+        <h2 class="section-heading">Buy One <span class="highlight-primary">Get One</span> Free</h2>
+        <div class="offers-grid-2">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/truffle-mushroom.webp" alt="BOGO Gourmet" class="promo-card-thumb">
+              <span class="promo-discount-badge">BOGO 100% FREE</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">BOGO Gourmet Extravaganza</h3>
+              <p class="promo-card-desc">Buy any Medium or Large Gourmet Pizza, get a Classic Margherita completely free.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">BOGO2026</span>
+                <button class="btn-copy-code" data-code="BOGO2026"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('BOGO Gourmet Extravaganza', 'BOGO2026')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/four-cheese.webp" alt="Midweek BOGO" class="promo-card-thumb">
+              <span class="promo-discount-badge">MIDWEEK BOGO</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Wednesday BOGO Blast</h3>
+              <p class="promo-card-desc">Every Wednesday, order any medium pizza and receive a second medium pizza at zero cost.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">WEDNESDAYBOGO</span>
+                <button class="btn-copy-code" data-code="WEDNESDAYBOGO"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Wednesday BOGO Blast', 'WEDNESDAYBOGO')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 06 — PARTY PACKAGES
+           ========================================================================== -->
+      <div class="offers-section-block" id="combos-section" data-cat="combos" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">06 — Big Celebrations</div>
+        <h2 class="section-heading">Party <span class="highlight-primary">Packages</span></h2>
+        <div class="offers-grid-2">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/restaurant-interior.webp" alt="Office Pizza Fiesta" class="promo-card-thumb">
+              <span class="promo-discount-badge">SAVE ₹650</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Office &amp; Corporate Fiesta</h3>
+              <p class="promo-card-desc">5 Large Pizzas + 3 Stuffed Garlic Breads + 2 Large Fries + 10 Soft Drinks.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">PARTYCORP</span>
+                <button class="btn-copy-code" data-code="PARTYCORP"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Office & Corporate Fiesta', 'PARTYCORP')">Claim Offer →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/pizza-combo.webp" alt="Birthday Bash" class="promo-card-thumb">
+              <span class="promo-discount-badge">FREE CAKE</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Birthday Bash Combo</h3>
+              <p class="promo-card-desc">4 Medium Pizzas, 2 Cheesy Sides, 6 Beverages + Special celebration dessert brownie.</p>
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">BDAYBASH</span>
+                <button class="btn-copy-code" data-code="BDAYBASH"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Birthday Bash Combo', 'BDAYBASH')">Claim Offer →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 07 — LIMITED-TIME OFFERS (LIVE COUNTDOWN)
+           ========================================================================== -->
+      <div class="offers-section-block" id="flash-deals-section" data-cat="limited" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">07 — Ticking Clock</div>
+        <h2 class="section-heading">Limited-Time <span class="highlight-primary">Flash Offers</span></h2>
+        <div class="offers-grid-2">
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/hero-pizza.webp" alt="Midnight Flash Deal" class="promo-card-thumb">
+              <span class="promo-discount-badge">40% FLASH</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Midnight Craving Flash 40%</h3>
+              <p class="promo-card-desc">Order before the timer runs out to snag 40% off on all late-night pizzas.</p>
+              
+              <!-- Live Countdown Clock -->
+              <div class="countdown-clock-wrap">
+                <div class="countdown-unit-box"><span class="countdown-num cd-days">02</span><span class="countdown-lbl">Days</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-hours">14</span><span class="countdown-lbl">Hours</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-mins">32</span><span class="countdown-lbl">Mins</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-secs">45</span><span class="countdown-lbl">Secs</span></div>
+              </div>
+
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">FLASH40</span>
+                <button class="btn-copy-code" data-code="FLASH40"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Midnight Craving Flash 40%', 'FLASH40')">Grab Deal Now →</button>
+            </div>
+          </div>
+
+          <div class="promo-offer-card">
+            <div class="promo-card-thumb-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Chef Truffle Special" class="promo-card-thumb">
+              <span class="promo-discount-badge">CHEF EXCLUSIVE</span>
+            </div>
+            <div class="promo-card-body">
+              <h3 class="promo-card-title">Artisan Truffle Launch Deal</h3>
+              <p class="promo-card-desc">Try our new wild mushroom truffle gourmet pizza at an exclusive introductory price.</p>
+              
+              <div class="countdown-clock-wrap">
+                <div class="countdown-unit-box"><span class="countdown-num cd-days">02</span><span class="countdown-lbl">Days</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-hours">14</span><span class="countdown-lbl">Hours</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-mins">32</span><span class="countdown-lbl">Mins</span></div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit-box"><span class="countdown-num cd-secs">45</span><span class="countdown-lbl">Secs</span></div>
+              </div>
+
+              <div class="coupon-copy-box">
+                <span class="coupon-code-text">TRUFFLELAUNCH</span>
+                <button class="btn-copy-code" data-code="TRUFFLELAUNCH"><i class="fa-solid fa-copy"></i> Copy</button>
+              </div>
+              <button class="btn btn-primary" onclick="openOfferModal('Artisan Truffle Launch Deal', 'TRUFFLELAUNCH')">Grab Deal Now →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           SECTION 08 — MEMBERSHIP BENEFITS
+           ========================================================================== -->
+      <div class="offers-section-block" id="loyalty-section" data-cat="membership" style="scroll-margin-top:100px;">
+        <div class="section-eyebrow">08 — STACKLY VIP</div>
+        <h2 class="section-heading">STACKLY <span class="highlight-primary">Loyalty</span> Club</h2>
+        <div class="features-grid">
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-coins"></i></div>
+            <h3>Earn 10 Points Per ₹100</h3>
+            <p>Every rupee spent earns you Stackly Coins redeemable for free pizzas and sides anytime.</p>
+          </div>
+
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Zero Delivery Fee Pass</h3>
+            <p>STACKLY Club members enjoy unlimited free express delivery on all orders above ₹199.</p>
+          </div>
+
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-cake-candles"></i></div>
+            <h3>Birthday Pizza Gift</h3>
+            <p>Celebrate your special day with a complimentary medium signature pizza of your choice.</p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:2.5rem;">
+          <a href="404.html" class="btn btn-primary">Join STACKLY Club Free →</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRODUCT QUICK-VIEW MODAL -->
+  <div class="modal-overlay" id="product-detail-modal">
+    <div class="modal-dialog" style="max-width:760px;">
+      <button class="modal-close" id="product-modal-close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="product-modal-content">
+        <!-- Dynamically injected by menu.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFER TERMS & CLAIM MODAL -->
+  <div class="modal-overlay" id="offer-terms-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="offer-terms-modal-close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="offer-terms-content">
+        <!-- Dynamically injected by offers.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Overlay Modal -->
+  <div class="search-modal">
+    <div class="search-container">
+      <button class="modal-close search-modal-close" aria-label="Close Search">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" placeholder="Search pizza, sides, drinks...">
+        <button class="search-submit-btn" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="search-quick-tags">
+        <span>Popular:</span>
+        <button class="search-tag-chip" data-tag="Margherita">Margherita</button>
+        <button class="search-tag-chip" data-tag="Pepperoni">Pepperoni Feast</button>
+        <button class="search-tag-chip" data-tag="Cheese Burst">Cheese Burst</button>
+        <button class="search-tag-chip" data-tag="Garlic Bread">Garlic Bread</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-out Cart Drawer -->
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Your Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        <i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i>
+        <span>Your Pizza Bag</span>
+      </div>
+      <button class="modal-close cart-drawer-close" aria-label="Close Cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="cart-drawer-items" id="cart-drawer-items-list">
+      <!-- Injected by cart.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row">
+        <span>Subtotal</span>
+        <span id="cart-drawer-subtotal">₹0</span>
+      </div>
+      <div class="cart-summary-row" style="color:var(--white-75); font-size:0.85rem;">
+        <span>Delivery &amp; Taxes</span>
+        <span>Calculated at checkout</span>
+      </div>
+      <div class="cart-summary-row cart-total-row">
+        <span>Total</span>
+        <span id="cart-drawer-total">₹0</span>
+      </div>
+      <div class="cart-drawer-actions">
+        <a href="Login.html" class="btn btn-primary btn-checkout-trigger" style="width:100%; text-align:center;">
+          Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+    <!-- ==========================================================================
+       FOOTER (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="STACKLY Home">
+            <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="footer-logo">
+          </a>
+          <p class="footer-desc">
+            Freshly prepared pizzas, delicious flavours, and memorable moments. STACKLY brings your favourite pizza experience closer to you.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="About.html">About</a></li>
+            <li class="footer-link-item"><a href="menuoff.html">Menuoff</a></li>
+            <li class="footer-link-item"><a href="services.html">Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+            <li class="footer-link-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Menu -->
+        <div>
+          <h4 class="footer-col-title">Our Menu</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Classic Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Premium Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Non-Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Sides &amp; Beverages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Support -->
+        <div>
+          <h4 class="footer-col-title">Customer Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Help Center</a></li>
+            <li class="footer-link-item"><a href="404.html">Delivery Information</a></li>
+            <li class="footer-link-item"><a href="404.html">Refund Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <div>Copyright &copy; 2026 STACKLY. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SCRIPTS
+       ========================================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/offers.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

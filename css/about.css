@@ -1,0 +1,112 @@
+/* ==========================================================================
+   STACKLY PIZZA SHOP - ABOUT PAGE STYLES
+   Red + Black Palette (#E50914 & #0D0D0D)
+   ========================================================================== */
+
+.about-hero {
+  position: relative;
+  padding-top: clamp(7.5rem, 13vw, 10.5rem);
+  padding-bottom: clamp(4rem, 7vw, 6rem);
+  background: linear-gradient(180deg, rgba(13, 13, 13, 0.72) 0%, rgba(13, 13, 13, 0.88) 100%),
+              url('../assets/images/restaurant-interior.webp') center/cover no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.16) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.about-editorial-grid.reverse {
+  direction: rtl;
+}
+
+.about-editorial-grid.reverse > * {
+  direction: ltr;
+}
+
+.about-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-glass);
+}
+
+.about-media-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-media-frame:hover .about-media-img {
+  transform: scale(1.05);
+}
+
+.about-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  background: #161616;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  margin: 3.5rem 0;
+  text-align: center;
+}
+
+.stat-counter-val {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-counter-lbl {
+  font-size: 0.88rem;
+  color: var(--white-75);
+  font-weight: 500;
+}
+
+/* Pizza Craft Steps */
+.craft-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.craft-step-card {
+  background: #161616;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.craft-step-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-6px);
+}
+
+.craft-step-badge {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--primary);
+  opacity: 0.4;
+  margin-bottom: 0.75rem;
+}

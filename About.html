@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — STACKLY | Our Story, Craft &amp; Food Philosophy</title>
+  <meta name="description" content="Discover the STACKLY story: 48-hour cold fermented dough, artisanal brick-oven baking, hand-picked ingredients and a passion for bringing people together.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins exclusively -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Home">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="brand-logo-img">
+        <span class="brand-fallback-text">STACKLY</span>
+      </a>
+
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link active">About</a>
+        <a href="menuoff.html" class="nav-link">Menuoff</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon" data-action="open-search" aria-label="Search menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="nav-btn-icon" data-action="open-cart" aria-label="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <a href="Login.html" class="btn btn-primary nav-login-btn">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" aria-label="STACKLY Home"><img src="assets/images/Brand-logo.webp" alt="STACKLY" style="height:36px; width:auto;"></a>
+      <button class="modal-close mobile-drawer-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+        <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="About.html" class="mobile-nav-link active"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="menuoff.html" class="mobile-nav-link"><span>Menuoff</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="blog.html" class="mobile-nav-link"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="mobile-drawer-actions">
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Login to Account</a>
+      <a href="Signup.html" class="btn btn-secondary" style="width:100%;">Create New Account</a>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="search-modal">
+    <div class="search-container">
+      <button class="modal-close search-modal-close" aria-label="Close Search"><i class="fa-solid fa-xmark"></i></button>
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" placeholder="Search menu...">
+        <button class="search-submit-btn" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Your Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i> <span>Your Pizza Bag</span></div>
+      <button class="modal-close cart-drawer-close" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-drawer-items"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row"><span>Subtotal</span><span class="cart-summary-subtotal-val">₹0</span></div>
+      <div class="cart-summary-row"><span>Taxes &amp; Delivery</span><span style="color:var(--primary); font-weight:600;">FREE</span></div>
+      <div class="cart-summary-row cart-summary-total"><span>Total</span><span class="cart-summary-total-val" style="color:var(--primary);">₹0</span></div>
+      <button class="btn btn-primary cart-checkout-btn">Place Order Now <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO — BRINGING PEOPLE TOGETHER, ONE SLICE AT A TIME
+       ========================================================================== -->
+  <main>
+    <section class="about-hero inner-page-hero">
+      <div class="about-hero-overlay"></div>
+      <div class="container hero-content-inner" style="position:relative; z-index:10;">
+        <div class="badge-tag"><i class="fa-solid fa-heart"></i> Handcrafted Passion</div>
+        <h1 class="hero-heading">Bringing People Together,<br><span class="highlight-primary">One Slice</span> at a Time.</h1>
+        <p class="section-desc" style="margin-left:auto; margin-right:auto;">
+          At STACKLY, every pizza tells a story of fresh ingredients, great flavours, and shared happiness.
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Sections Container -->
+    <div class="container section-padding">
+
+      <!-- ==========================================================================
+           01 — OUR STORY
+           ========================================================================== -->
+      <div class="about-editorial-grid">
+        <div>
+          <div class="section-eyebrow">01 — How It Began</div>
+          <h2 class="section-heading">Born From a Pure Love for <span class="highlight-primary">Authentic Crust</span></h2>
+          <p class="section-desc">
+            STACKLY started with a single wood-fired oven and a simple conviction: fast food should never mean compromised food. We believed pizza was more than cheese on dough; it was a celebratory centerpiece that brings family and friends closer.
+          </p>
+          <p class="section-desc">
+            After traveling through the historic pizzerias of Naples and collaborating with master bakers, we developed our signature sourdough recipe. Today, STACKLY brings that same artisan soul into every single box delivered straight to your door.
+          </p>
+        </div>
+        <div class="about-media-frame">
+          <img src="assets/images/pizza-chef.webp" alt="Master chef crafting pizza dough" class="about-media-img">
+        </div>
+      </div>
+
+      <!-- Demonstration Stats Strip -->
+      <div class="about-stat-strip">
+        <div>
+          <div class="stat-counter-val">100K+</div>
+          <div class="stat-counter-lbl">Pizzas Baked</div>
+        </div>
+        <div>
+          <div class="stat-counter-val">48 Hrs</div>
+          <div class="stat-counter-lbl">Cold Fermentation</div>
+        </div>
+        <div>
+          <div class="stat-counter-val">450°C</div>
+          <div class="stat-counter-lbl">Wood-Fired Heat</div>
+        </div>
+        <div>
+          <div class="stat-counter-val">99.4%</div>
+          <div class="stat-counter-lbl">Happy Foodies</div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           02 — OUR MISSION & 03 — OUR VISION
+           ========================================================================== -->
+      <div class="about-editorial-grid reverse">
+        <div>
+          <div class="section-eyebrow">02 &amp; 03 — Purpose &amp; Horizon</div>
+          <h2 class="section-heading">Our <span class="highlight-primary">Mission</span> &amp; Vision</h2>
+          <div style="margin-bottom:1.75rem;">
+            <h4 style="font-size:1.15rem; font-weight:700; color:var(--primary); margin-bottom:0.4rem;">
+              <i class="fa-solid fa-bullseye"></i> Our Mission
+            </h4>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.65;">
+              To deliver unforgettable, restaurant-grade pizza experiences by treating every dough ball with care, utilizing farm-fresh ingredients, and honoring Italian heritage with modern flavor creativity.
+            </p>
+          </div>
+          <div>
+            <h4 style="font-size:1.15rem; font-weight:700; color:var(--accent); margin-bottom:0.4rem;">
+              <i class="fa-solid fa-eye"></i> Our Vision
+            </h4>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.65;">
+              To become India's most loved gourmet pizza destination — where quality is uncompromising, ordering is effortless, and every meal creates memorable moments of shared happiness.
+            </p>
+          </div>
+        </div>
+        <div class="about-media-frame">
+          <img src="assets/images/restaurant-interior.webp" alt="Warm STACKLY Restaurant Interior" class="about-media-img">
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           04 — OUR FOOD PHILOSOPHY & 05 — FRESH INGREDIENTS
+           ========================================================================== -->
+      <div class="about-editorial-grid">
+        <div>
+          <div class="section-eyebrow">04 &amp; 05 — The Pantry</div>
+          <h2 class="section-heading">Zero Shortcuts. <span class="highlight-primary">Pure Flavour</span>.</h2>
+          <p class="section-desc">
+            We never freeze our dough or use artificial preservatives. Our cheeses are 100% dairy mozzarella crafted from fresh local milk. Our marinara sauce is slow-simmered daily with hand-crushed tomatoes, fragrant garlic, and extra virgin cold-pressed olive oil.
+          </p>
+          <div class="features-grid" style="grid-template-columns: 1fr 1fr; gap:1rem; margin-top:1.5rem;">
+            <div style="background:var(--white-05); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border-glass);">
+              <h5 style="color:var(--primary); font-weight:700; margin-bottom:0.25rem;">100% Real Cheese</h5>
+              <p style="font-size:0.82rem; color:var(--white-75);">No cheese analogs, vegetable fat fillers, or powdered substitutes.</p>
+            </div>
+            <div style="background:var(--white-05); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border-glass);">
+              <h5 style="color:var(--primary); font-weight:700; margin-bottom:0.25rem;">Handpicked Produce</h5>
+              <p style="font-size:0.82rem; color:var(--white-75);">Crisp bell peppers, button mushrooms, and vine tomatoes sourced daily.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-media-frame">
+          <img src="assets/images/fresh-ingredients.webp" alt="Fresh Pizza Ingredients" class="about-media-img">
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           06 — OUR PIZZA CRAFT
+           ========================================================================== -->
+      <div style="margin-bottom: clamp(4rem, 7vw, 6rem);">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">06 — The Artisanal Method</div>
+          <h2 class="section-heading">Mastering the <span class="highlight-primary">Pizza Craft</span></h2>
+          <p class="section-desc">From flour milling to blazing wood-fired oven heat, take a behind-the-scenes look at how we bake perfection.</p>
+        </div>
+
+        <div class="craft-steps-grid">
+          <div class="craft-step-card">
+            <div class="craft-step-badge">01</div>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">48-Hour Slow Fermentation</h3>
+            <p style="color:var(--white-75); font-size:0.9rem; line-height:1.6;">Natural levain yeast dough rests in temperature-controlled chillers for two full days, developing complex aromas and a light, digestible crumb.</p>
+          </div>
+
+          <div class="craft-step-card">
+            <div class="craft-step-badge">02</div>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">Hand-Stretched Pizzaiolo Technique</h3>
+            <p style="color:var(--white-75); font-size:0.9rem; line-height:1.6;">No rolling pins ever touch our dough. Our chefs gently stretch by hand to preserve delicate air pockets that create a bubbly, airy cornicione crust.</p>
+          </div>
+
+          <div class="craft-step-card">
+            <div class="craft-step-badge">03</div>
+            <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:0.5rem;">High-Heat Blistered Baking</h3>
+            <p style="color:var(--white-75); font-size:0.9rem; line-height:1.6;">Baked at scorching 450°C stone temperatures for 90 to 120 seconds, sealing moisture inside while blistering the crust with leopard spots.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           07 — OUR VALUES
+           ========================================================================== -->
+      <div style="margin-bottom: clamp(4rem, 7vw, 6rem);">
+        <div class="section-header-centered">
+          <div class="section-eyebrow">07 — Core Principles</div>
+          <h2 class="section-heading">The Four Pillars of <span class="highlight-primary">STACKLY</span></h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-award"></i></div>
+            <h3>Quality Above All</h3>
+            <p>We source top-tier ingredients and never sacrifice quality for cost-cutting shortcuts.</p>
+          </div>
+
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-arrows-spin"></i></div>
+            <h3>Reliable Consistency</h3>
+            <p>Every pizza ordered delivers the exact same incredible aroma, crunch, and chew every time.</p>
+          </div>
+
+          <div class="feature-block-card">
+            <div class="feature-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+            <h3>Bold Innovation</h3>
+            <p>Constantly exploring adventurous new toppings, crust variations, and cheese blends.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================================
+           08 — FINAL CTA
+           ========================================================================== -->
+      <div class="final-cta-section section-padding" style="border-radius:var(--radius-lg); overflow:hidden;">
+        <div class="final-cta-overlay"></div>
+        <div style="position:relative; z-index:2; text-align:center;">
+          <div class="section-eyebrow" style="justify-content:center;">08 — Taste the Passion</div>
+          <h2 class="section-heading" style="margin-bottom:1.25rem;">
+            Every Great Moment Deserves <span class="highlight-primary">Great Pizza</span>.
+          </h2>
+          <p class="section-desc" style="margin-left:auto; margin-right:auto; margin-bottom:2rem;">
+            Experience the craft for yourself. Order your favourite artisanal pizza or customize your own masterpiece now.
+          </p>
+          <a href="404.html" class="btn btn-primary">
+            Explore Our Menu <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+    <!-- ==========================================================================
+       FOOTER (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="STACKLY Home">
+            <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="footer-logo">
+          </a>
+          <p class="footer-desc">
+            Freshly prepared pizzas, delicious flavours, and memorable moments. STACKLY brings your favourite pizza experience closer to you.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="About.html">About</a></li>
+            <li class="footer-link-item"><a href="menuoff.html">Menuoff</a></li>
+            <li class="footer-link-item"><a href="services.html">Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+            <li class="footer-link-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Menu -->
+        <div>
+          <h4 class="footer-col-title">Our Menu</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Classic Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Premium Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Non-Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Sides &amp; Beverages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Support -->
+        <div>
+          <h4 class="footer-col-title">Customer Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Help Center</a></li>
+            <li class="footer-link-item"><a href="404.html">Delivery Information</a></li>
+            <li class="footer-link-item"><a href="404.html">Refund Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <div>Copyright &copy; 2026 STACKLY. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

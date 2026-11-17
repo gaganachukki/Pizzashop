@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &amp; Stories — STACKLY | Dough Secrets, Farm Ingredients &amp; Pizza Culture</title>
+  <meta name="description" content="Read STACKLY pizza journal: cold dough fermentation secrets, artisanal ingredient sourcing, cheese stretch science, and culinary traditions.">
+  <link rel="icon" href="assets/images/Brand-logo.webp" type="image/webp">
+
+  <!-- Google Fonts: Poppins & Caveat Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .blog-hero {
+      position: relative;
+      padding-top: clamp(8rem, 14vw, 11rem);
+      padding-bottom: clamp(4rem, 8vw, 6rem);
+      background: radial-gradient(circle at center, rgba(229, 9, 20, 0.22) 0%, rgba(13, 13, 13, 0.98) 75%),
+                  url('assets/images/pizza-chef.webp') center/cover no-repeat;
+      text-align: center;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2.25rem;
+    }
+    .blog-card {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s ease;
+      height: 100%;
+    }
+    .blog-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(229, 9, 20, 0.2);
+    }
+    .blog-card-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card-img {
+      transform: scale(1.06);
+    }
+    .blog-card-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .blog-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--white-60);
+      margin-bottom: 0.75rem;
+    }
+    .blog-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      transition: color 0.2s ease;
+    }
+    .blog-card:hover .blog-title {
+      color: var(--primary);
+    }
+    .blog-excerpt {
+      color: var(--white-75);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .blog-author-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--surface-border);
+    }
+    .blog-author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    /* Anatomy Grid */
+    .anatomy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+    .anatomy-card {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .anatomy-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(229, 9, 20, 0.2);
+    }
+    .anatomy-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .anatomy-card-num {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: rgba(229, 9, 20, 0.4);
+      line-height: 1;
+    }
+    .anatomy-card:hover .anatomy-card-num {
+      color: var(--primary);
+      text-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+    }
+    .anatomy-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(229, 9, 20, 0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+    .anatomy-card:hover .anatomy-card-icon {
+      background: var(--primary);
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    /* Sourcing Grid */
+    .sourcing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .sourcing-card {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s ease;
+    }
+    .sourcing-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: 0 14px 32px rgba(229, 9, 20, 0.2);
+    }
+    .sourcing-img-wrap {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sourcing-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .sourcing-card:hover .sourcing-img {
+      transform: scale(1.08);
+    }
+    .sourcing-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(8px);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sourcing-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    /* Newsletter Journal Card */
+    .journal-club-box {
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.12) 0%, rgba(22, 22, 22, 0.95) 60%);
+      border: 1.5px solid rgba(229, 9, 20, 0.4);
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .journal-input-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 580px;
+      margin: 2rem auto 1.5rem;
+      flex-wrap: wrap;
+    }
+    .journal-input {
+      flex: 1 1 280px;
+      background: #111111;
+      border: 1px solid var(--border-glass);
+      color: var(--secondary);
+      padding: 0.9rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease;
+    }
+    .journal-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(229, 9, 20, 0.35);
+    }
+    .journal-perks {
+      display: flex;
+      justify-content: center;
+      gap: clamp(1rem, 3vw, 2.5rem);
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      color: var(--white-75);
+      font-size: 0.88rem;
+    }
+    .journal-perks span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .journal-perks i {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (COMMON ACROSS MAIN PAGES) -->
+  <header class="site-header">
+    <div class="container-wide nav-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Home">
+        <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="brand-logo-img">
+        <span class="brand-fallback-text">STACKLY</span>
+      </a>
+
+      <nav class="nav-links-wrap" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="About.html" class="nav-link">About</a>
+        <a href="menuoff.html" class="nav-link">Menuoff</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="Contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-btn-icon" data-action="open-search" aria-label="Search menu">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="nav-btn-icon" data-action="open-cart" aria-label="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-counter-badge" style="display:none;">0</span>
+        </button>
+
+        <a href="Login.html" class="btn btn-primary nav-login-btn">
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <div class="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" aria-label="STACKLY Home"><img src="assets/images/Brand-logo.webp" alt="STACKLY" style="height:36px; width:auto;"></a>
+      <button class="modal-close mobile-drawer-close" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span>Home</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="About.html" class="mobile-nav-link"><span>About</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="menuoff.html" class="mobile-nav-link"><span>Menuoff</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="services.html" class="mobile-nav-link"><span>Services</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="blog.html" class="mobile-nav-link active"><span>Blog</span> <i class="fa-solid fa-chevron-right"></i></a>
+      <a href="Contact.html" class="mobile-nav-link"><span>Contact</span> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="mobile-drawer-actions">
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Login to Account</a>
+      <a href="Signup.html" class="btn btn-secondary" style="width:100%;">Create New Account</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="blog-hero inner-page-hero">
+      <div class="container hero-content-inner" style="position:relative; z-index:2;">
+        <div class="hero-script-eyebrow" style="margin-bottom:0.5rem;">~ Stories From the Wood-Fired Oven ~</div>
+        <div class="badge-tag" style="margin-bottom:1rem;">
+          <i class="fa-solid fa-book-open"></i> Culinary Insights &amp; Food Lore
+        </div>
+        <h1 class="hero-heading">The STACKLY <span class="highlight-primary">Pizza Journal</span></h1>
+        <p class="section-desc" style="max-width:720px; margin-left:auto; margin-right:auto;">
+          Behind every golden leopard-spotted crust lies a world of slow sourdough fermentation, authentic Italian heritage, and culinary devotion.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOG POSTS GRID -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Freshly Penned Articles</div>
+          <h2 class="section-heading">Mastering the Art of <span class="highlight-primary">Artisanal Pizza</span></h2>
+          <p class="section-desc">Learn about dough hydration, secret sauces, and the timeless joy of wood-fired cooking.</p>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Post 1 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/pizza-chef.webp" alt="Artisanal Pizza Chef" class="blog-card-img">
+              <span class="blog-card-tag">Dough Science</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Nov 15, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-title">The 48-Hour Cold Fermentation: Why Time Makes the Best Crust</h3>
+              <p class="blog-excerpt">
+                Discover why our master pizzaiolos rest every dough batch in temperature-controlled coolers for 48 hours to break down complex sugars and build aromatic micro-bubbles.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-1.webp" alt="Chef Marco Rossi" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Chef Marco Rossi</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Head Pizzaiolo</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/fresh-ingredients.webp" alt="Fresh Ingredients" class="blog-card-img">
+              <span class="blog-card-tag">Farm Sourcing</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Nov 12, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 3 min read</span>
+              </div>
+              <h3 class="blog-title">From Vine to Crust: The Secret Behind Our San Marzano Sauce</h3>
+              <p class="blog-excerpt">
+                Why volcanic soil, Mediterranean sunshine, and freshly plucked Genovese basil make our signature pizza sauce sweet, tangy, and bursting with vibrant natural umami.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-2.webp" alt="Elena Moretti" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Elena Moretti</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Culinary Director</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/family-dining.webp" alt="Family Dining" class="blog-card-img">
+              <span class="blog-card-tag">Food Culture</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Nov 08, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-title">The Shared Slice: Why Pizza Brings Generations Closer Together</h3>
+              <p class="blog-excerpt">
+                Whether celebrating a birthday or enjoying weekend game nights, pizza remains the ultimate communal meal that turns simple gatherings into lifelong memories.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-3.webp" alt="David Kumar" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">David Kumar</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Food Storyteller</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Cheese Pull Science" class="blog-card-img">
+              <span class="blog-card-tag">Cheese Mastery</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Oct 29, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-title">The Physics of the Perfect Cheese Pull: Mozzarella &amp; Provolone</h3>
+              <p class="blog-excerpt">
+                Examining the protein structure, fat ratios, and scorching 450°C wood fire heat that create the sensational stringy cheese pull our customers love.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-4.webp" alt="Sophia Chen" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Sophia Chen</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Quality Specialist</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 5 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/hero-pizza.webp" alt="Wood Fired Oven Pizza" class="blog-card-img">
+              <span class="blog-card-tag">Oven Science</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Nov 04, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-title">Wood-Fired vs. Stone Deck: The Battle for the Crispiest Crust</h3>
+              <p class="blog-excerpt">
+                Examining radiant roof aerodynamics, wood ember moisture, and why a 90-second 450°C blast creates an irreplaceable smoky flavor that gas ovens simply cannot duplicate.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-1.webp" alt="Chef Marco Rossi" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Chef Marco Rossi</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Head Pizzaiolo</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 6 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/veg-supreme.webp" alt="Gourmet Vegetarian Pizza" class="blog-card-img">
+              <span class="blog-card-tag">Plant-Based</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Oct 26, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-title">The Vegetarian Renaissance: 7 Gourmet Garden Toppings</h3>
+              <p class="blog-excerpt">
+                From fire-blistered artichoke hearts and roasted pine nuts to fragrant white truffle oil, discover how garden ingredients elevate pizza into sophisticated gourmet cuisine.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-2.webp" alt="Elena Moretti" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Elena Moretti</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Culinary Director</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 7 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/garlic-bread.webp" alt="Artisan Crust and Dips" class="blog-card-img">
+              <span class="blog-card-tag">Flavour Pairing</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Oct 18, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 3 min read</span>
+              </div>
+              <h3 class="blog-title">Pairing Perfection: Artisanal Dips, Crusted Edges &amp; Craft Sodas</h3>
+              <p class="blog-excerpt">
+                Never leave the cornicione behind! Our master sommelier guide to pairing pillowy pizza crusts with smoked garlic aioli, spicy hot honey, and citrus botanical craft sodas.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-3.webp" alt="David Kumar" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">David Kumar</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Food Storyteller</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post 8 -->
+          <article class="blog-card">
+            <div class="blog-card-img-wrap">
+              <img src="assets/images/farmhouse.webp" alt="Gluten Friendly Artisan Pizza" class="blog-card-img">
+              <span class="blog-card-tag">Wellness</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-meta-row">
+                <span><i class="fa-regular fa-calendar"></i> Oct 10, 2026</span>
+                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-title">The Art of Gluten-Friendly Artisan Crusts: Ancient Grains</h3>
+              <p class="blog-excerpt">
+                How we perfected a wholesome gluten-friendly recipe using stone-milled sorghum, organic brown rice flour, and chia seeds that still yields a satisfying, crisp airy chew.
+              </p>
+              <div class="blog-author-row">
+                <img src="assets/images/avatar-4.webp" alt="Sophia Chen" class="blog-author-avatar">
+                <div>
+                  <div style="color:var(--white); font-weight:600; font-size:0.88rem;">Sophia Chen</div>
+                  <div style="color:var(--white-60); font-size:0.75rem;">Quality Specialist</div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTENT 2: ANATOMY OF A NEAPOLITAN MASTERPIECE
+         ========================================================================== -->
+    <section class="section-padding" style="background: rgba(22, 22, 22, 0.6); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border);">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Deconstructing Culinary Art</div>
+          <h2 class="section-heading">Anatomy of a <span class="highlight-primary">Neapolitan Slice</span></h2>
+          <p class="section-desc">Every single layer of a STACKLY pizza is mathematically engineered for absolute equilibrium between crunch, acidity, richness, and floral aroma.</p>
+        </div>
+
+        <div class="anatomy-grid">
+          <!-- Item 1 -->
+          <div class="anatomy-card">
+            <div class="anatomy-card-top">
+              <span class="anatomy-card-num">01</span>
+              <div class="anatomy-card-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+            </div>
+            <span class="blog-card-tag" style="position:static; align-self:flex-start; margin-bottom:0.75rem;">The Crust Rim</span>
+            <h3 style="font-size:1.25rem; font-weight:700; color:var(--white); margin-bottom:0.75rem;">The Leopard Cornicione</h3>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin:0;">
+              High-hydration sourdough dough creates airy, hollow micro-chambers that blister under 450°C heat, giving a crisp wafer shell with a marshmallow-light interior.
+            </p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="anatomy-card">
+            <div class="anatomy-card-top">
+              <span class="anatomy-card-num">02</span>
+              <div class="anatomy-card-icon"><i class="fa-solid fa-spoon"></i></div>
+            </div>
+            <span class="blog-card-tag" style="position:static; align-self:flex-start; margin-bottom:0.75rem;">San Marzano D.O.P.</span>
+            <h3 style="font-size:1.25rem; font-weight:700; color:var(--white); margin-bottom:0.75rem;">Volcanic Tomato Coulis</h3>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin:0;">
+              Hand-crushed whole plum tomatoes grown in volcanic soils near Mount Vesuvius, preserved with zero sugar and balanced strictly with mineral-rich Trapani sea salt.
+            </p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="anatomy-card">
+            <div class="anatomy-card-top">
+              <span class="anatomy-card-num">03</span>
+              <div class="anatomy-card-icon"><i class="fa-solid fa-cheese"></i></div>
+            </div>
+            <span class="blog-card-tag" style="position:static; align-self:flex-start; margin-bottom:0.75rem;">Artisanal Curd</span>
+            <h3 style="font-size:1.25rem; font-weight:700; color:var(--white); margin-bottom:0.75rem;">Fior di Latte &amp; Mozzarella</h3>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin:0;">
+              Whole-milk curd pulled daily into silky braided knots with 52% moisture that melt into glossy white islands without drowning the crust in grease.
+            </p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="anatomy-card">
+            <div class="anatomy-card-top">
+              <span class="anatomy-card-num">04</span>
+              <div class="anatomy-card-icon"><i class="fa-solid fa-seedling"></i></div>
+            </div>
+            <span class="blog-card-tag" style="position:static; align-self:flex-start; margin-bottom:0.75rem;">Finishing Drizzle</span>
+            <h3 style="font-size:1.25rem; font-weight:700; color:var(--white); margin-bottom:0.75rem;">Ligurian EVOO &amp; Sweet Basil</h3>
+            <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin:0;">
+              Cold-pressed extra virgin olive oil with peppery finish notes and freshly picked sweet Genovese basil leaves added at the oven mouth to release volatile aromatics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTENT 3: FARM-TO-OVEN SOURCING JOURNAL
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Traceable Provenance</div>
+          <h2 class="section-heading">Our Farm-To-Oven <span class="highlight-primary">Sourcing Journal</span></h2>
+          <p class="section-desc">Meet the passionate family farms, regional mills, and sustainable dairy cooperatives behind every ingredient we bake.</p>
+        </div>
+
+        <div class="sourcing-grid">
+          <!-- Sourcing 1 -->
+          <div class="sourcing-card">
+            <div class="sourcing-img-wrap">
+              <img src="assets/images/fresh-ingredients.webp" alt="Heritage Stone-Ground Wheat" class="sourcing-img">
+              <span class="sourcing-badge">Stone-Ground Mills</span>
+            </div>
+            <div class="sourcing-body">
+              <h3 style="font-size:1.3rem; font-weight:700; color:var(--white); margin-bottom:0.6rem;">Heritage Hard-Wheat Berries</h3>
+              <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin-bottom:1.25rem; flex-grow:1;">
+                Cold-milled wheat flour retaining living germ and rich bran fibers. Grown on sun-bathed sustainable plateaus without synthetic drying chemicals.
+              </p>
+              <div style="color:var(--primary); font-size:0.85rem; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                <i class="fa-solid fa-location-dot"></i> Single-Origin Certified
+              </div>
+            </div>
+          </div>
+
+          <!-- Sourcing 2 -->
+          <div class="sourcing-card">
+            <div class="sourcing-img-wrap">
+              <img src="assets/images/cheese-burst.webp" alt="Regional Dairy Cooperative" class="sourcing-img">
+              <span class="sourcing-badge">Dairy Cooperative</span>
+            </div>
+            <div class="sourcing-body">
+              <h3 style="font-size:1.3rem; font-weight:700; color:var(--white); margin-bottom:0.6rem;">Grass-Fed Whole Milk Curd</h3>
+              <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin-bottom:1.25rem; flex-grow:1;">
+                Fresh milk collected twice daily from pastured cows within 60 km of our kitchen network. Hand-stretched into high-moisture mozzarella balls.
+              </p>
+              <div style="color:var(--primary); font-size:0.85rem; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                <i class="fa-solid fa-cow"></i> 100% Pasture Grazed
+              </div>
+            </div>
+          </div>
+
+          <!-- Sourcing 3 -->
+          <div class="sourcing-card">
+            <div class="sourcing-img-wrap">
+              <img src="assets/images/restaurant-interior.webp" alt="Sustainable Hardwood Forestry" class="sourcing-img">
+              <span class="sourcing-badge">Sustained Forestry</span>
+            </div>
+            <div class="sourcing-body">
+              <h3 style="font-size:1.3rem; font-weight:700; color:var(--white); margin-bottom:0.6rem;">Seasoned Beech &amp; Oak Wood</h3>
+              <p style="color:var(--white-75); font-size:0.92rem; line-height:1.6; margin-bottom:1.25rem; flex-grow:1;">
+                Kiln-dried hardwood logs sourced from managed coppice forests. Burn clean at 450°C to impart pure, fragrant woodland essence into our crusts.
+              </p>
+              <div style="color:var(--primary); font-size:0.85rem; font-weight:700; display:flex; align-items:center; gap:0.4rem;">
+                <i class="fa-solid fa-tree"></i> 100% FSC Certified Wood
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTENT 4: PIZZA CONNOISSEURS JOURNAL CLUB & VIP NEWSLETTER
+         ========================================================================== -->
+    <section class="section-padding" style="background: rgba(22, 22, 22, 0.6); border-top: 1px solid var(--surface-border); border-bottom: 1px solid var(--surface-border);">
+      <div class="container">
+        <div class="journal-club-box">
+          <div class="hero-script-eyebrow" style="color:var(--primary); font-size:1.75rem; margin-bottom:0.35rem;">~ Join 25,000+ Pizza Connoisseurs ~</div>
+          <h2 style="font-size:clamp(1.75rem, 3.5vw, 2.5rem); font-weight:900; color:var(--white); margin-bottom:0.75rem;">
+            Subscribe to the <span class="highlight-primary">STACKLY Food Journal</span>
+          </h2>
+          <p style="color:var(--white-75); font-size:0.98rem; max-width:620px; margin:0 auto; line-height:1.65;">
+            Receive monthly secret sourdough recipes, masterclass video dispatches, and an instant <strong>₹150 welcome discount voucher</strong> directly in your inbox.
+          </p>
+
+          <form class="journal-input-group" onsubmit="event.preventDefault(); alert('Welcome to the STACKLY Journal Club! Check your inbox for your ₹150 voucher: STACKJOURNAL150'); this.reset();">
+            <input type="email" class="journal-input" placeholder="Enter your email address..." required>
+            <button type="submit" class="btn btn-primary" style="padding:0.9rem 2rem; font-weight:700; white-space:nowrap;">
+              Join Journal Club →
+            </button>
+          </form>
+
+          <div class="journal-perks">
+            <span><i class="fa-solid fa-ticket"></i> ₹150 Instant Welcome Voucher</span>
+            <span><i class="fa-solid fa-bell"></i> Monthly Off-Menu Tasting Invites</span>
+            <span><i class="fa-solid fa-book-bookmark"></i> Master Pizzaiolo Recipe Secrets</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section-padding-sm" style="background:var(--surface-dark);">
+      <div class="container">
+        <div class="menuoff-divider-banner" style="margin:0;">
+          <div>
+            <div class="hero-script-eyebrow" style="color:var(--primary); font-size:1.6rem; margin-bottom:0.35rem;">~ Craving Fresh Pizza? ~</div>
+            <h2 style="font-size:clamp(1.5rem, 3vw, 2.25rem); font-weight:800; color:var(--white); margin-bottom:0.5rem;">
+              Turn These Stories Into Your Next Meal
+            </h2>
+            <p style="color:var(--white-75); font-size:0.95rem;">
+              Browse our complete pizza catalog and active promotions on the combined Menuoff page.
+            </p>
+          </div>
+          <div>
+            <a href="404.html" class="btn btn-primary" style="padding:0.85rem 2.2rem; font-size:1rem;">
+              Explore Menuoff →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Search Modal & Cart Drawer -->
+  <div class="search-modal">
+    <div class="search-container">
+      <button class="modal-close search-modal-close" aria-label="Close Search"><i class="fa-solid fa-xmark"></i></button>
+      <div class="search-input-wrap">
+        <input type="text" class="search-input" placeholder="Search pizza, sides, drinks...">
+        <button class="search-submit-btn" aria-label="Search"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer" aria-label="Your Cart Drawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title"><i class="fa-solid fa-bag-shopping" style="color:var(--primary);"></i> <span>Your Pizza Bag</span></div>
+      <button class="modal-close cart-drawer-close" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cart-drawer-items" id="cart-drawer-items-list"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-summary-row"><span>Total:</span><span id="cart-drawer-total">₹0</span></div>
+      <a href="Login.html" class="btn btn-primary" style="width:100%;">Checkout</a>
+    </div>
+  </aside>
+
+  <!-- FOOTER -->
+    <!-- ==========================================================================
+       FOOTER (COMMON ACROSS MAIN PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="STACKLY Home">
+            <img src="assets/images/Brand-logo.webp" alt="STACKLY Pizza" class="footer-logo">
+          </a>
+          <p class="footer-desc">
+            Freshly prepared pizzas, delicious flavours, and memorable moments. STACKLY brings your favourite pizza experience closer to you.
+          </p>
+          <div class="footer-social-links">
+            <a href="404.html" class="footer-social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="footer-social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="About.html">About</a></li>
+            <li class="footer-link-item"><a href="menuoff.html">Menuoff</a></li>
+            <li class="footer-link-item"><a href="services.html">Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Blog</a></li>
+            <li class="footer-link-item"><a href="Contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Menu -->
+        <div>
+          <h4 class="footer-col-title">Our Menu</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Classic Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Premium Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Non-Veg Pizzas</a></li>
+            <li class="footer-link-item"><a href="404.html">Sides &amp; Beverages</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Support -->
+        <div>
+          <h4 class="footer-col-title">Customer Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html">Help Center</a></li>
+            <li class="footer-link-item"><a href="404.html">Delivery Information</a></li>
+            <li class="footer-link-item"><a href="404.html">Refund Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Privacy Policy</a></li>
+            <li class="footer-link-item"><a href="404.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom-bar">
+        <div>Copyright &copy; 2026 STACKLY. All Rights Reserved.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <span>•</span>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
