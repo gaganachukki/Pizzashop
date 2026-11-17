@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { selector: '.blog-card, .anatomy-card, .sourcing-card, .blog-sidebar-card', stagger: 0.1, y: 30 },
     { selector: '.testimonial-card', stagger: 0.1, y: 25 },
     { selector: '.faq-item', stagger: 0.08, y: 20 },
-    { selector: '.contact-card, .contact-info-card, .contact-form-container', stagger: 0.1, y: 25 },
+    { selector: '.contact-card, .contact-info-card, .contact-form-container, .store-map-card', stagger: 0.1, y: 25 },
     { selector: '.about-story-card, .chef-card, .story-grid-card', stagger: 0.1, y: 30 },
 
     // Dashboard Cards & Widgets

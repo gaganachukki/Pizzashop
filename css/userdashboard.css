@@ -717,7 +717,7 @@ body.user-dashboard-body {
 /* KPI Cards Grid */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   margin-bottom: 28px;
 }
@@ -1037,7 +1037,7 @@ body.user-dashboard-body {
 /* Quick Pizza Order Cards */
 .quick-order-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -1146,7 +1146,7 @@ body.user-dashboard-body {
 /* Taste Profile and Preference Boxes */
 .taste-pref-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-top: 14px;
 }
@@ -1177,7 +1177,7 @@ body.user-dashboard-body {
 /* Telemetry & Hot Zone Verification Stat Grids */
 .telemetry-stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-top: 16px;
 }
@@ -1269,6 +1269,13 @@ body.user-dashboard-body {
     min-width: 0;
     max-width: 100%;
   }
+  .kpi-grid,
+  .quick-order-grid,
+  .taste-pref-grid,
+  .telemetry-stat-grid,
+  .dash-statement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
@@ -1358,7 +1365,11 @@ body.user-dashboard-body {
   .dash-search-box {
     display: none;
   }
-  .kpi-grid {
+  .kpi-grid,
+  .quick-order-grid,
+  .taste-pref-grid,
+  .telemetry-stat-grid,
+  .dash-statement-grid {
     grid-template-columns: 1fr;
   }
   .dash-form-grid {
@@ -1367,9 +1378,5 @@ body.user-dashboard-body {
   .tracker-stages-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-  }
-  .telemetry-stat-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
   }
 }

@@ -659,7 +659,7 @@
             </button>
           </div>
 
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px;">
+          <div class="dash-statement-grid" style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px;">
             <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:10px; padding:14px; display:flex; justify-content:space-between; align-items:center;">
               <div>
                 <strong style="color:var(--white); font-size:0.9rem; display:block;">November 2026 Statement</strong>
@@ -682,6 +682,14 @@
                 <span style="font-size:0.75rem; color:var(--text-muted);">6 Orders &bull; Total ₹3,290 &bull; GST Paid ₹164</span>
               </div>
               <button class="btn-table-action" onclick="alert('Downloading September 2026 PDF invoice...');"><i class="fa-solid fa-file-pdf"></i> PDF</button>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle); border-radius:10px; padding:14px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong style="color:var(--white); font-size:0.9rem; display:block;">August 2026 Statement</strong>
+                <span style="font-size:0.75rem; color:var(--text-muted);">5 Orders &bull; Total ₹2,740 &bull; GST Paid ₹137</span>
+              </div>
+              <button class="btn-table-action" onclick="alert('Downloading August 2026 PDF invoice...');"><i class="fa-solid fa-file-pdf"></i> PDF</button>
             </div>
           </div>
         </div>

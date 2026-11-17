@@ -376,6 +376,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Allow external Google Maps directions link
+    if (href.includes('maps.google') || href.includes('google.com/maps')) {
+      return;
+    }
+
     // G. All STACKLY Logos are EXEMPT and lead to home page
     const hasBrandImg = Boolean(
       el.querySelector('.footer-logo, .brand-logo-img, .sidebar-brand-img, .admin-brand-img, .dash-mobile-logo-img, .admin-mobile-logo-img, img[src*="Brand-logo"]')

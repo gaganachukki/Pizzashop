@@ -19,6 +19,70 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 
+  <!-- GitHub Pages & URL Normalization Auto-Router -->
+  <script>
+    (function () {
+      try {
+        var path = window.location.pathname || '';
+        var rawSegments = path.split('/');
+        var file = (rawSegments[rawSegments.length - 1] || '').trim();
+        var lower = file.toLowerCase();
+
+        if (!file || lower === '404.html' || lower === '404') return;
+
+        // Prevent infinite loops
+        var retryKey = 'stackly_recovery_' + lower;
+        if (sessionStorage.getItem(retryKey)) {
+          sessionStorage.removeItem(retryKey);
+          return;
+        }
+
+        var prefix = path.substring(0, path.lastIndexOf('/') + 1);
+
+        // Scenario 1: admindashboard casing variations on GitHub Pages
+        if (file === 'admindashboard.html' || file === 'admindashboard') {
+          sessionStorage.setItem(retryKey, '1');
+          window.location.replace(prefix + 'AdminDashboard.html' + window.location.search + window.location.hash);
+          return;
+        }
+        if (file === 'AdminDashboard.html') {
+          sessionStorage.setItem(retryKey, '1');
+          window.location.replace(prefix + 'admindashboard.html' + window.location.search + window.location.hash);
+          return;
+        }
+
+        // Canonical mapping for all other pages
+        var canonicalMap = {
+          'index.html': 'index.html',
+          'index': 'index.html',
+          'about.html': 'About.html',
+          'about': 'About.html',
+          'menuoff.html': 'menuoff.html',
+          'menuoff': 'menuoff.html',
+          'services.html': 'services.html',
+          'services': 'services.html',
+          'blog.html': 'blog.html',
+          'blog': 'blog.html',
+          'contact.html': 'Contact.html',
+          'contact': 'Contact.html',
+          'login.html': 'Login.html',
+          'login': 'Login.html',
+          'signup.html': 'Signup.html',
+          'signup': 'Signup.html',
+          'userdashboard.html': 'userdashboard.html',
+          'userdashboard': 'userdashboard.html'
+        };
+
+        if (canonicalMap[lower] && file !== canonicalMap[lower]) {
+          sessionStorage.setItem(retryKey, '1');
+          window.location.replace(prefix + canonicalMap[lower] + window.location.search + window.location.hash);
+        }
+      } catch (err) {
+        // Silently allow default 404 presentation
+      }
+    })();
+  </script>
+
   <style>
     .error-page-wrap {
       min-height: 100vh;
